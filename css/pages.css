@@ -1,0 +1,710 @@
+/**
+ * Page-Specific Layouts for Padel Club Wireframe
+ */
+
+/* ==========================================================================
+   HOMEPAGE
+   ========================================================================== */
+
+.wf-hero {
+  padding: var(--space-12) 0 var(--space-16);
+  background-color: var(--wf-bg-surface);
+  border-bottom: var(--wf-border-solid);
+}
+
+.wf-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: var(--space-10);
+  align-items: center;
+}
+
+.wf-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.wf-hero-title {
+  font-size: var(--text-4xl);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-4);
+  color: var(--wf-text-primary);
+}
+
+.wf-hero-lead {
+  font-size: var(--text-lg);
+  color: var(--wf-text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-8);
+  max-width: 540px;
+}
+
+.wf-hero-actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-8);
+}
+
+.wf-hero-meta {
+  display: flex;
+  gap: var(--space-6);
+  border-top: 1px solid var(--wf-border-light);
+  padding-top: var(--space-4);
+  font-size: var(--text-xs);
+  color: var(--wf-text-muted);
+}
+
+.wf-hero-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Quick Book Bar on Homepage */
+.wf-quick-book-box {
+  background: var(--wf-bg-card);
+  border: 2px solid var(--wf-text-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+  margin-top: -36px;
+  position: relative;
+  z-index: 10;
+}
+
+.wf-quick-book-title {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wf-quick-book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) auto;
+  gap: var(--space-3);
+  align-items: end;
+}
+
+/* Playing Options 3-Column Grid */
+.wf-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+.wf-option-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.wf-option-card-body {
+  flex: 1;
+  padding: var(--space-5) 0;
+}
+
+.wf-option-card-title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+
+.wf-option-card-desc {
+  font-size: var(--text-sm);
+  color: var(--wf-text-secondary);
+  line-height: 1.5;
+  margin-bottom: var(--space-4);
+}
+
+.wf-option-features {
+  list-style: none;
+  font-size: var(--text-xs);
+  color: var(--wf-text-secondary);
+  margin-bottom: var(--space-5);
+}
+
+.wf-option-features li {
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Beginner Section on Homepage */
+.wf-beginner-box {
+  background-color: var(--wf-bg-surface);
+  border: var(--wf-border-solid);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+}
+
+.wf-beginner-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.wf-step-card {
+  border-left: 2px solid var(--wf-text-primary);
+  padding-left: var(--space-4);
+}
+
+.wf-step-num {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--wf-text-muted);
+  text-transform: uppercase;
+}
+
+.wf-step-title {
+  font-size: var(--text-base);
+  font-weight: 700;
+  margin: 4px 0 6px;
+}
+
+.wf-step-desc {
+  font-size: var(--text-xs);
+  color: var(--wf-text-secondary);
+  line-height: 1.5;
+}
+
+/* Facilities Preview */
+.wf-facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-4);
+}
+
+.wf-facility-item {
+  border: 1px solid var(--wf-border-default);
+  background-color: var(--wf-bg-card);
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+}
+
+.wf-facility-name {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+
+.wf-facility-desc {
+  font-size: var(--text-xs);
+  color: var(--wf-text-muted);
+  line-height: 1.4;
+}
+
+/* Location and Contact Preview Card */
+.wf-contact-banner {
+  background-color: var(--wf-bg-surface);
+  border: var(--wf-border-thick);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
+
+/* ==========================================================================
+   PAGE: PLAY / COURT BOOKING FLOW
+   ========================================================================== */
+
+.wf-booking-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+/* Horizontal Date Strip */
+.wf-date-strip {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-6);
+  -webkit-overflow-scrolling: touch;
+}
+
+.wf-date-pill {
+  flex: 0 0 auto;
+  min-width: 85px;
+  background-color: var(--wf-bg-surface);
+  border: 1.5px solid var(--wf-border-default);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-2);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.wf-date-pill:hover {
+  border-color: var(--wf-border-dark);
+}
+
+.wf-date-pill.is-active {
+  background-color: var(--wf-text-primary);
+  color: var(--wf-text-inverse);
+  border-color: var(--wf-text-primary);
+}
+
+.wf-date-pill-day {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.wf-date-pill-num {
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+/* Booking Filter Controls */
+.wf-filters-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--wf-bg-surface);
+  border: 1px solid var(--wf-border-default);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-6);
+}
+
+.wf-filter-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.wf-filter-label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--wf-text-muted);
+}
+
+.wf-toggle-group {
+  display: inline-flex;
+  border: 1px solid var(--wf-border-default);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.wf-toggle-option {
+  padding: 6px 12px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  background: var(--wf-bg-surface);
+  border: none;
+  border-right: 1px solid var(--wf-border-default);
+  cursor: pointer;
+}
+
+.wf-toggle-option:last-child {
+  border-right: none;
+}
+
+.wf-toggle-option.is-active {
+  background-color: var(--wf-text-primary);
+  color: var(--wf-text-inverse);
+}
+
+/* Time Slot Periods */
+.wf-period-block {
+  margin-bottom: var(--space-6);
+}
+
+.wf-period-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--wf-border-default);
+  padding-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.wf-period-title {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--wf-text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.wf-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: var(--space-2);
+}
+
+/* Time Slot Card */
+.wf-slot-btn {
+  background-color: var(--wf-bg-surface);
+  border: 1.5px solid var(--wf-border-default);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: all 0.15s ease;
+  position: relative;
+}
+
+.wf-slot-btn:hover:not(:disabled) {
+  border-color: var(--wf-border-dark);
+  background-color: #f8fafc;
+}
+
+.wf-slot-btn.is-selected {
+  background-color: #0f172a;
+  border-color: #0f172a;
+  color: #ffffff;
+}
+
+.wf-slot-btn.is-selected .wf-slot-price,
+.wf-slot-btn.is-selected .wf-slot-court {
+  color: #e2e8f0;
+}
+
+.wf-slot-btn:disabled,
+.wf-slot-btn.is-booked {
+  background-color: var(--wf-bg-muted);
+  border-color: var(--wf-border-light);
+  color: var(--wf-text-placeholder);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.wf-slot-time {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.wf-slot-court {
+  font-size: 10px;
+  color: var(--wf-text-muted);
+}
+
+.wf-slot-price {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--wf-text-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+/* Sticky Booking Summary */
+.wf-summary-card {
+  position: sticky;
+  top: 120px;
+  background-color: var(--wf-bg-surface);
+  border: 2px solid var(--wf-text-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  box-shadow: var(--wf-shadow-md);
+}
+
+.wf-summary-header {
+  border-bottom: 1px solid var(--wf-border-light);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.wf-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-2);
+}
+
+.wf-summary-row-label {
+  color: var(--wf-text-secondary);
+}
+
+.wf-summary-row-val {
+  font-weight: 600;
+  text-align: right;
+}
+
+.wf-summary-divider {
+  border-top: 1px dashed var(--wf-border-default);
+  margin: var(--space-4) 0;
+}
+
+.wf-summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space-4);
+}
+
+.wf-summary-total-label {
+  font-size: var(--text-base);
+  font-weight: 700;
+}
+
+.wf-summary-total-price {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  font-family: var(--font-mono);
+}
+
+.wf-summary-per-person {
+  font-size: var(--text-xs);
+  color: var(--wf-text-muted);
+  text-align: right;
+  margin-top: -8px;
+  margin-bottom: var(--space-4);
+}
+
+/* ==========================================================================
+   PAGE: FIND A PLAYER FLOW
+   ========================================================================== */
+
+.wf-match-hero-banner {
+  background: var(--wf-bg-surface);
+  border: 1.5px solid var(--wf-border-thick);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.wf-refund-guarantee {
+  background-color: #f1f5f9;
+  border-left: 4px solid #0f172a;
+  padding: var(--space-4);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+}
+
+.wf-match-tabs {
+  display: flex;
+  gap: var(--space-2);
+  border-bottom: 2px solid var(--wf-border-default);
+  margin-bottom: var(--space-6);
+}
+
+.wf-match-tab {
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  color: var(--wf-text-muted);
+}
+
+.wf-match-tab.is-active {
+  color: var(--wf-text-primary);
+  border-bottom-color: var(--wf-text-primary);
+}
+
+.wf-matches-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.wf-match-card {
+  background-color: var(--wf-bg-surface);
+  border: var(--wf-border-solid);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-5);
+  align-items: center;
+  transition: border-color 0.15s ease;
+}
+
+.wf-match-card:hover {
+  border-color: var(--wf-border-thick);
+}
+
+.wf-player-spots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--space-2);
+}
+
+.wf-spot-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--wf-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.wf-spot-filled {
+  background-color: var(--wf-text-primary);
+  color: var(--wf-text-inverse);
+}
+
+.wf-spot-empty {
+  background-color: transparent;
+  border-style: dashed;
+}
+
+/* Match Status Interactive Simulator Bar */
+.wf-status-simulator {
+  background: #f8fafc;
+  border: 1.5px dashed var(--wf-border-dark);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+/* ==========================================================================
+   PAGE: NEW TO PADEL
+   ========================================================================== */
+
+.wf-padel-diagram {
+  border: 1.5px solid var(--wf-border-default);
+  background-color: #ffffff;
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-8);
+}
+
+.wf-diagram-court-sketch {
+  height: 180px;
+  border: 2px solid var(--wf-text-primary);
+  position: relative;
+  background: 
+    linear-gradient(to right, transparent calc(50% - 1px), #cbd5e1 calc(50% - 1px), #cbd5e1 calc(50% + 1px), transparent calc(50% + 1px)),
+    linear-gradient(to bottom, transparent calc(50% - 1px), #cbd5e1 calc(50% - 1px), #cbd5e1 calc(50% + 1px), transparent calc(50% + 1px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+}
+
+.wf-equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.wf-equipment-card {
+  border: var(--wf-border-solid);
+  padding: var(--space-5);
+  border-radius: var(--radius-md);
+  background: var(--wf-bg-surface);
+}
+
+/* ==========================================================================
+   PAGE: CLASSES & COACHING
+   ========================================================================== */
+
+.wf-classes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-10);
+}
+
+.wf-class-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.wf-coaches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-6);
+}
+
+.wf-coach-card {
+  border: var(--wf-border-solid);
+  padding: var(--space-5);
+  background: var(--wf-bg-surface);
+  border-radius: var(--radius-md);
+}
+
+/* ==========================================================================
+   PAGE: THE CLUB
+   ========================================================================== */
+
+.wf-club-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--space-8);
+}
+
+.wf-courts-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.wf-hours-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  margin-top: var(--space-3);
+}
+
+.wf-hours-table td {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--wf-border-light);
+}
+
+.wf-hours-table td:last-child {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 900px) {
+  .wf-hero-grid,
+  .wf-booking-layout,
+  .wf-club-grid,
+  .wf-contact-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .wf-summary-card {
+    position: static;
+    margin-top: var(--space-6);
+  }
+
+  .wf-quick-book-grid {
+    grid-template-columns: 1fr;
+  }
+}

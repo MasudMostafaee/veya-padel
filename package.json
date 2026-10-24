@@ -1,0 +1,12 @@
+{
+  "name": "padel-club-wireframe",
+  "version": "1.0.0",
+  "description": "Low-fidelity interactive wireframe prototype for Padel Club website",
+  "scripts": {
+    "start": "python3 -m http.server 3000",
+    "serve": "npx serve -l 3000 ."
+  },
+  "keywords": ["ux", "wireframe", "padel", "prototype"],
+  "author": "",
+  "license": "MIT"
+}

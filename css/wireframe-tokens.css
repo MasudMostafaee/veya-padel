@@ -1,0 +1,117 @@
+/**
+ * Low-Fidelity Wireframe Design Tokens
+ * Grayscale, clear visual hierarchy, blueprint/wireframe styling
+ */
+
+:root {
+  /* Grayscale Palette */
+  --wf-bg-page: #f8fafc;
+  --wf-bg-surface: #ffffff;
+  --wf-bg-muted: #f1f5f9;
+  --wf-bg-card: #ffffff;
+  --wf-bg-placeholder: #e2e8f0;
+  --wf-bg-active: #0f172a;
+  
+  /* Wireframe Border & Structure */
+  --wf-border-light: #e2e8f0;
+  --wf-border-default: #cbd5e1;
+  --wf-border-dark: #64748b;
+  --wf-border-dashed: dashed 1px #94a3b8;
+  --wf-border-solid: solid 1.5px #cbd5e1;
+  --wf-border-thick: solid 2px #334155;
+  --wf-border-selected: solid 2px #0f172a;
+  
+  /* Text & Labels */
+  --wf-text-primary: #0f172a;
+  --wf-text-secondary: #475569;
+  --wf-text-muted: #64748b;
+  --wf-text-placeholder: #94a3b8;
+  --wf-text-inverse: #ffffff;
+  
+  /* Interactive Controls */
+  --wf-control-bg: #ffffff;
+  --wf-control-hover: #f1f5f9;
+  --wf-control-active: #0f172a;
+  --wf-control-active-text: #ffffff;
+  --wf-disabled-bg: #e2e8f0;
+  --wf-disabled-text: #94a3b8;
+  
+  /* State Indicators (Wireframe Grayscale with subtle pattern/tint) */
+  --wf-state-success-bg: #e2e8f0;
+  --wf-state-success-text: #0f172a;
+  --wf-state-info-bg: #e2e8f0;
+  --wf-state-info-border: #94a3b8;
+  
+  /* UX Annotation Note colors (Special tool overlay) */
+  --wf-annotation-bg: #fef08a;
+  --wf-annotation-border: #ca8a04;
+  --wf-annotation-text: #713f12;
+  --wf-annotation-badge: #0284c7;
+
+  /* Typography Scale */
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-lg: 1.125rem;   /* 18px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --text-3xl: 1.875rem;  /* 30px */
+  --text-4xl: 2.25rem;   /* 36px */
+
+  /* Spacing Scale */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem;  /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem;    /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem;  /* 24px */
+  --space-8: 2rem;    /* 32px */
+  --space-10: 2.5rem; /* 40px */
+  --space-12: 3rem;   /* 48px */
+  --space-16: 4rem;   /* 64px */
+
+  /* Layout */
+  --container-max-width: 1140px;
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
+  
+  /* Elevation (Minimal wireframe shadow) */
+  --wf-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --wf-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--wf-bg-page);
+  color: var(--wf-text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
