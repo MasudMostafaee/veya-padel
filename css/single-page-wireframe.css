@@ -1,0 +1,1402 @@
+/**
+ * Single-Page Padel Club Wireframe Styles (v2.2)
+ * Engineered for clean visual hierarchy, 8pt systematic spacing,
+ * neutral grayscale wireframe aesthetic, and interactive UX annotations.
+ * Concise copy, interactive tabs for First-Timer, stacked pricing pills.
+ */
+
+:root {
+  /* Wireframe Grayscale Palette */
+  --wf-canvas: #f8fafc;
+  --wf-surface: #ffffff;
+  --wf-surface-alt: #f1f5f9;
+  --wf-surface-dark: #0f172a;
+  
+  --wf-border-light: #e2e8f0;
+  --wf-border-medium: #cbd5e1;
+  --wf-border-dark: #334155;
+  --wf-border-focus: #0f172a;
+
+  --wf-text-heading: #0f172a;
+  --wf-text-body: #334155;
+  --wf-text-muted: #64748b;
+  --wf-text-inverse: #ffffff;
+
+  /* UX Note Annotation Theme (Stands out clearly as design rationale) */
+  --wf-note-bg: #fefce8;
+  --wf-note-border: #eab308;
+  --wf-note-text: #713f12;
+  --wf-note-badge: #854d0e;
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  /* 8pt Systematic Spacing Scale */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+
+  /* Radius & Layout */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 9999px;
+  --container-width: 1180px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--wf-canvas);
+  color: var(--wf-text-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   TOP REVIEW TOOLBAR (Wireframe Client Inspection Bar)
+   ========================================================================== */
+.wf-review-bar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background-color: var(--wf-surface-dark);
+  color: #f8fafc;
+  padding: var(--sp-2) var(--sp-6);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #1e293b;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.wf-review-bar-left {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.wf-review-chip {
+  background-color: #334155;
+  color: #f8fafc;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+}
+
+.wf-review-bar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.wf-tool-btn {
+  background-color: #1e293b;
+  color: #f8fafc;
+  border: 1px solid #475569;
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.wf-tool-btn:hover {
+  background-color: #334155;
+  border-color: #94a3b8;
+}
+
+.wf-tool-btn.active {
+  background-color: #eab308;
+  color: #713f12;
+  border-color: #ca8a04;
+}
+
+.wf-jump-select {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  border: 1px solid #475569;
+  border-radius: var(--radius-sm);
+  padding: 3px 8px;
+  font-size: 11px;
+}
+
+/* ==========================================================================
+   UX ANNOTATION BOXES (The "باکس کوچک" user requirement)
+   ========================================================================== */
+.wf-ux-note {
+  display: block;
+  background-color: var(--wf-note-bg);
+  border: 1.5px dashed var(--wf-note-border);
+  color: var(--wf-note-text);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--radius-md);
+  margin-top: var(--sp-3);
+  margin-bottom: var(--sp-3);
+  font-size: 12px;
+  line-height: 1.45;
+  text-align: left;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.wf-ux-note-header {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-bottom: 3px;
+}
+
+.wf-ux-note-badge {
+  background-color: #fef08a;
+  border: 1px solid #ca8a04;
+  color: #854d0e;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+}
+
+.wf-ux-note-title {
+  font-weight: 700;
+  font-size: 11px;
+  color: #713f12;
+}
+
+.wf-ux-note-body {
+  color: #713f12;
+  font-size: 11.5px;
+}
+
+body.hide-ux-notes .wf-ux-note {
+  display: none !important;
+}
+
+/* ==========================================================================
+   LAYOUT CONTAINERS & SECTION SCAFFOLDING
+   ========================================================================== */
+.wf-container {
+  max-width: var(--container-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--sp-6);
+  padding-right: var(--sp-6);
+}
+
+.wf-section {
+  padding-top: var(--sp-12);
+  padding-bottom: var(--sp-12);
+  border-bottom: 1px solid var(--wf-border-light);
+  background-color: var(--wf-surface);
+}
+
+.wf-section-alt {
+  background-color: var(--wf-surface-alt);
+}
+
+.wf-section-header {
+  margin-bottom: var(--sp-8);
+}
+
+.wf-section-header-split {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--sp-8);
+  flex-wrap: wrap;
+}
+
+.wf-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--wf-text-muted);
+  margin-bottom: var(--sp-2);
+  display: inline-block;
+}
+
+.wf-section-title {
+  font-size: 2.15rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--wf-text-heading);
+  line-height: 1.15;
+}
+
+.wf-section-subtitle {
+  font-size: 0.95rem;
+  color: var(--wf-text-muted);
+  max-width: 480px;
+  line-height: 1.5;
+}
+
+/* Wireframe Media Placeholder Box */
+.wf-placeholder {
+  background-color: #e2e8f0;
+  border: 1.5px solid #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  text-align: center;
+  padding: var(--sp-4);
+  position: relative;
+  overflow: hidden;
+}
+
+.wf-placeholder::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(203, 213, 225, 0.25),
+    rgba(203, 213, 225, 0.25) 10px,
+    rgba(226, 232, 240, 0.25) 10px,
+    rgba(226, 232, 240, 0.25) 20px
+  );
+  pointer-events: none;
+}
+
+.wf-placeholder-badge {
+  background-color: rgba(255, 255, 255, 0.92);
+  border: 1px solid #94a3b8;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  z-index: 1;
+}
+
+/* Buttons - Consistent Dimensions & States */
+.wf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.wf-btn-primary {
+  background-color: var(--wf-surface-dark);
+  color: var(--wf-text-inverse);
+  border-color: var(--wf-surface-dark);
+}
+
+.wf-btn-primary:hover {
+  background-color: #1e293b;
+}
+
+.wf-btn-secondary {
+  background-color: transparent;
+  color: var(--wf-text-heading);
+  border-color: var(--wf-border-dark);
+}
+
+.wf-btn-secondary:hover {
+  background-color: var(--wf-surface-alt);
+}
+
+.wf-btn-sm {
+  padding: 6px 14px;
+  font-size: 12px;
+}
+
+.wf-btn-full {
+  width: 100%;
+}
+
+/* ==========================================================================
+   NAVIGATION / HEADER
+   ========================================================================== */
+.wf-navbar {
+  background-color: var(--wf-surface);
+  border-bottom: 1.5px solid var(--wf-border-light);
+  padding: var(--sp-4) 0;
+}
+
+.wf-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-6);
+}
+
+.wf-logo {
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--wf-text-heading);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  text-transform: uppercase;
+}
+
+.wf-logo-icon {
+  background-color: var(--wf-surface-dark);
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+}
+
+.wf-nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-6);
+  list-style: none;
+}
+
+.wf-nav-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--wf-text-body);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 4px 0;
+  transition: color 0.15s ease;
+}
+
+.wf-nav-link:hover {
+  color: var(--wf-text-heading);
+}
+
+.wf-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+/* ==========================================================================
+   SECTION 00: HERO
+   ========================================================================== */
+.wf-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: var(--sp-12);
+  align-items: center;
+}
+
+.wf-hero-headline {
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--wf-text-heading);
+  margin-bottom: var(--sp-3);
+  text-transform: uppercase;
+}
+
+.wf-hero-desc {
+  font-size: 1.05rem;
+  color: var(--wf-text-body);
+  margin-bottom: var(--sp-5);
+  max-width: 480px;
+  line-height: 1.5;
+}
+
+.wf-hero-ctas {
+  display: flex;
+  gap: var(--sp-3);
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--sp-6);
+}
+
+.wf-hero-media {
+  height: 360px;
+  border-radius: var(--radius-md);
+}
+
+.wf-hero-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+  padding: var(--sp-4) var(--sp-6);
+  background-color: var(--wf-surface-alt);
+  border: 1px solid var(--wf-border-light);
+  border-radius: var(--radius-md);
+  margin-top: var(--sp-8);
+}
+
+.wf-hero-bar-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.wf-hero-bar-label {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--wf-text-muted);
+  text-transform: uppercase;
+}
+
+.wf-hero-bar-value {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--wf-text-heading);
+}
+
+/* ==========================================================================
+   SECTION 01: WAYS TO PLAY (Bigger Headings, Punchy Text, 1-Line Meta)
+   ========================================================================== */
+.wf-split-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-8);
+}
+
+.wf-play-card {
+  background-color: var(--wf-surface);
+  border: 1.5px solid var(--wf-border-medium);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.wf-play-card-pop {
+  border: 1.5px solid var(--wf-border-medium);
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.06);
+}
+
+.wf-card-tag-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background-color: var(--wf-surface-dark);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+.wf-play-card-media {
+  height: 200px;
+}
+
+.wf-play-card-content {
+  padding: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.wf-play-card-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--wf-text-muted);
+  text-transform: uppercase;
+  margin-bottom: var(--sp-1);
+}
+
+/* Big bold card titles */
+.wf-play-card-title {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--wf-text-heading);
+  margin-bottom: var(--sp-2);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.wf-play-card-text {
+  font-size: 15px;
+  color: var(--wf-text-body);
+  margin-bottom: var(--sp-4);
+  flex-grow: 1;
+  line-height: 1.5;
+}
+
+/* Single-Line Clean Metadata Bar */
+.wf-play-card-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--wf-text-muted);
+  border-top: 1px solid var(--wf-border-light);
+  padding-top: var(--sp-3);
+  margin-bottom: var(--sp-4);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wf-meta-bullet {
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   SECTION 02: FIRST TIME PLAYING (INTERACTIVE TABS & CONCISE COPY)
+   ========================================================================== */
+.wf-first-time-wrap {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: var(--sp-8);
+  align-items: stretch;
+}
+
+.wf-first-time-media {
+  height: 100%;
+  min-height: 320px;
+  border-radius: var(--radius-md);
+}
+
+.wf-first-time-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Modern Accessible Tabs */
+.wf-tabs-nav {
+  display: flex;
+  gap: var(--sp-2);
+  border-bottom: 2px solid var(--wf-border-light);
+  margin-top: var(--sp-4);
+  margin-bottom: var(--sp-4);
+}
+
+.wf-tab-btn {
+  background: none;
+  border: none;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--wf-text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.15s ease;
+  font-family: var(--font-sans);
+}
+
+.wf-tab-btn:hover {
+  color: var(--wf-text-heading);
+}
+
+.wf-tab-btn.active {
+  color: var(--wf-text-heading);
+  border-bottom-color: var(--wf-surface-dark);
+}
+
+.wf-tab-pane {
+  display: none;
+  min-height: 90px;
+  margin-bottom: var(--sp-5);
+}
+
+.wf-tab-pane.active {
+  display: block;
+  animation: wfFadeIn 0.2s ease;
+}
+
+@keyframes wfFadeIn {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.wf-tab-pane h4 {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--wf-text-heading);
+  margin-bottom: 4px;
+}
+
+.wf-tab-pane p {
+  font-size: 13.5px;
+  color: var(--wf-text-body);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   SECTION 03: COACHING, CLASSES & COACHES (CONCISE)
+   ========================================================================== */
+.wf-policy-alert {
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e3a8a;
+  padding: var(--sp-3) var(--sp-5);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--sp-6);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-size: 13px;
+}
+
+.wf-policy-alert strong {
+  color: #1e40af;
+}
+
+.wf-coaching-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-6);
+  margin-bottom: var(--sp-8);
+}
+
+.wf-subheading-block {
+  margin-top: var(--sp-10);
+  margin-bottom: var(--sp-5);
+  border-top: 1px solid var(--wf-border-medium);
+  padding-top: var(--sp-6);
+}
+
+.wf-subheading-block h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--wf-text-heading);
+  margin-bottom: 2px;
+}
+
+.wf-subheading-block p {
+  font-size: 13px;
+  color: var(--wf-text-muted);
+}
+
+/* Group Clinics 3-Col */
+.wf-clinics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-5);
+  margin-bottom: var(--sp-8);
+}
+
+.wf-clinic-card {
+  background-color: var(--wf-surface);
+  border: 1.5px solid var(--wf-border-medium);
+  border-radius: var(--radius-md);
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+}
+
+.wf-clinic-level-badge {
+  display: inline-block;
+  background-color: var(--wf-surface-dark);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--sp-2);
+  align-self: flex-start;
+}
+
+.wf-clinic-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--wf-text-heading);
+  margin-bottom: 4px;
+}
+
+.wf-clinic-desc {
+  font-size: 12.5px;
+  color: var(--wf-text-body);
+  margin-bottom: var(--sp-3);
+  flex-grow: 1;
+  line-height: 1.45;
+}
+
+.wf-clinic-specs {
+  border-top: 1px solid var(--wf-border-light);
+  padding-top: var(--sp-2);
+  margin-bottom: var(--sp-3);
+  font-size: 11.5px;
+  color: var(--wf-text-muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Coaches 3-Col */
+.wf-coaches-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-5);
+  margin-bottom: var(--sp-8);
+}
+
+.wf-coach-card {
+  background-color: var(--wf-surface);
+  border: 1.5px solid var(--wf-border-medium);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.wf-coach-avatar-ph {
+  height: 170px;
+}
+
+.wf-coach-content {
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.wf-coach-name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--wf-text-heading);
+  margin-bottom: 1px;
+}
+
+.wf-coach-title {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: #0284c7;
+  text-transform: uppercase;
+  margin-bottom: var(--sp-2);
+}
+
+.wf-coach-bio {
+  font-size: 12.5px;
+  color: var(--wf-text-body);
+  margin-bottom: var(--sp-3);
+  flex-grow: 1;
+  line-height: 1.4;
+}
+
+.wf-coach-cert {
+  font-size: 11px;
+  color: var(--wf-text-muted);
+  background-color: var(--wf-surface-alt);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--sp-3);
+}
+
+/* ==========================================================================
+   SECTION 04: PRICING CONTROLS (STACKED PILLS)
+   ========================================================================== */
+.wf-pricing-control-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-6);
+}
+
+.wf-segmented-pill-row {
+  display: inline-flex;
+  background-color: #e2e8f0;
+  border-radius: var(--radius-pill);
+  padding: 3px;
+}
+
+.wf-pill-btn {
+  background: transparent;
+  border: none;
+  padding: 7px 18px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--wf-text-muted);
+  cursor: pointer;
+  border-radius: var(--radius-pill);
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.wf-pill-btn.active {
+  background-color: var(--wf-surface-dark);
+  color: #fff;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.2);
+}
+
+.wf-pricing-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-6);
+  margin-bottom: var(--sp-6);
+}
+
+.wf-price-card {
+  background-color: var(--wf-surface);
+  border: 1.5px solid var(--wf-border-medium);
+  border-radius: var(--radius-md);
+  padding: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.wf-price-card.featured {
+  border: 2px solid var(--wf-surface-dark);
+}
+
+.wf-featured-tag {
+  position: absolute;
+  top: -11px;
+  right: var(--sp-6);
+  background-color: var(--wf-surface-dark);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.wf-price-header {
+  margin-bottom: var(--sp-4);
+  border-bottom: 1px solid var(--wf-border-light);
+  padding-bottom: var(--sp-3);
+}
+
+.wf-price-tier-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--wf-text-heading);
+  margin-bottom: 2px;
+}
+
+.wf-price-hours {
+  font-size: 12px;
+  color: var(--wf-text-muted);
+  font-family: var(--font-mono);
+}
+
+.wf-price-amount-box {
+  margin-bottom: var(--sp-4);
+}
+
+.wf-price-big {
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--wf-text-heading);
+  line-height: 1;
+}
+
+.wf-price-unit {
+  font-size: 13px;
+  color: var(--wf-text-muted);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.wf-price-subtext {
+  font-size: 11.5px;
+  color: #0284c7;
+  font-weight: 600;
+}
+
+.wf-price-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-6);
+  flex-grow: 1;
+}
+
+.wf-price-feature-item {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  color: var(--wf-text-body);
+}
+
+.wf-price-check {
+  font-weight: 900;
+  color: #16a34a;
+}
+
+.wf-playtomic-banner {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: var(--sp-3) var(--sp-5);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-6);
+  font-size: 13px;
+  color: #14532d;
+}
+
+.wf-essentials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-6);
+}
+
+.wf-essentials-block {
+  background-color: var(--wf-surface);
+  border: 1px solid var(--wf-border-light);
+  border-radius: var(--radius-md);
+  padding: var(--sp-5);
+}
+
+.wf-essentials-block h4 {
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+  color: var(--wf-text-heading);
+  margin-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--wf-border-light);
+  padding-bottom: var(--sp-2);
+}
+
+.wf-addons-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.wf-addon-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12.5px;
+}
+
+.wf-addon-price {
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--wf-text-heading);
+}
+
+/* ==========================================================================
+   SECTION 05: THE CLUB & FACILITIES
+   ========================================================================== */
+.wf-facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-5);
+}
+
+.wf-facility-card {
+  background-color: var(--wf-surface);
+  border: 1.5px solid var(--wf-border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.wf-facility-media {
+  height: 180px;
+}
+
+.wf-facility-content {
+  padding: var(--sp-4);
+}
+
+.wf-facility-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--wf-text-heading);
+  margin-bottom: 2px;
+}
+
+.wf-facility-desc {
+  font-size: 12.5px;
+  color: var(--wf-text-body);
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   SECTION 06: BALANCED 2-COLUMN FAQ
+   ========================================================================== */
+.wf-faq-2col {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: var(--sp-8);
+  align-items: start;
+}
+
+.wf-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.wf-faq-item {
+  background-color: var(--wf-surface);
+  border: 1.5px solid var(--wf-border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.wf-faq-item.open {
+  border-color: var(--wf-border-medium);
+}
+
+.wf-faq-question {
+  width: 100%;
+  padding: var(--sp-3) var(--sp-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--wf-text-heading);
+  cursor: pointer;
+}
+
+.wf-faq-icon {
+  font-size: 16px;
+  color: var(--wf-text-muted);
+  transition: transform 0.2s ease;
+}
+
+.wf-faq-item.open .wf-faq-icon {
+  transform: rotate(45deg);
+}
+
+.wf-faq-answer {
+  display: none;
+  padding: 0 var(--sp-4) var(--sp-4);
+  font-size: 13px;
+  color: var(--wf-text-body);
+  line-height: 1.5;
+  border-top: 1px dashed var(--wf-border-light);
+  padding-top: var(--sp-2);
+}
+
+.wf-faq-item.open .wf-faq-answer {
+  display: block;
+}
+
+.wf-faq-side-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.wf-faq-photo-ph {
+  height: 200px;
+  border-radius: var(--radius-md);
+}
+
+.wf-faq-help-card {
+  background-color: var(--wf-surface);
+  border: 1.5px solid var(--wf-border-medium);
+  border-radius: var(--radius-md);
+  padding: var(--sp-4);
+}
+
+.wf-faq-help-card h4 {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--wf-text-heading);
+  margin-bottom: 2px;
+}
+
+.wf-faq-help-card p {
+  font-size: 12.5px;
+  color: var(--wf-text-muted);
+  margin-bottom: var(--sp-3);
+}
+
+/* ==========================================================================
+   SECTION 07: LOCATION & CONTACT
+   ========================================================================== */
+.wf-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-8);
+  align-items: stretch;
+}
+
+.wf-contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.wf-contact-block {
+  margin-bottom: var(--sp-5);
+}
+
+.wf-contact-label {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--wf-text-muted);
+  margin-bottom: 2px;
+}
+
+.wf-contact-val {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--wf-text-heading);
+}
+
+.wf-contact-map-placeholder {
+  min-height: 280px;
+  border-radius: var(--radius-md);
+}
+
+/* ==========================================================================
+   BOTTOM GLOBAL CTA & FOOTER
+   ========================================================================== */
+.wf-bottom-cta {
+  background-color: var(--wf-surface-dark);
+  color: #fff;
+  padding: var(--sp-10) 0;
+  border-top: 1px solid #1e293b;
+}
+
+.wf-bottom-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-6);
+  flex-wrap: wrap;
+}
+
+.wf-bottom-cta-left h3 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 2px;
+}
+
+.wf-bottom-cta-left p {
+  font-size: 13.5px;
+  color: #94a3b8;
+}
+
+.wf-footer {
+  background-color: #0b1120;
+  color: #64748b;
+  padding: var(--sp-6) 0;
+  font-size: 11.5px;
+  border-top: 1px solid #1e293b;
+}
+
+.wf-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+}
+
+/* ==========================================================================
+   MODAL DIALOGS
+   ========================================================================== */
+.wf-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-4);
+}
+
+.wf-modal-overlay.open {
+  display: flex;
+}
+
+.wf-modal-dialog {
+  background-color: var(--wf-surface);
+  border: 1.5px solid var(--wf-border-medium);
+  border-radius: var(--radius-lg);
+  max-width: 620px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25);
+  animation: wfModalFadeIn 0.2s ease-out;
+}
+
+@keyframes wfModalFadeIn {
+  from { opacity: 0; transform: scale(0.96) translateY(6px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.wf-modal-header {
+  padding: var(--sp-4) var(--sp-5);
+  border-bottom: 1.5px solid var(--wf-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wf-modal-header h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--wf-text-heading);
+}
+
+.wf-modal-close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--wf-text-muted);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.wf-modal-body {
+  padding: var(--sp-5);
+}
+
+.wf-modal-footer {
+  padding: var(--sp-3) var(--sp-5);
+  border-top: 1px solid var(--wf-border-light);
+  background-color: var(--wf-surface-alt);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--sp-2);
+  border-bottom-left-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+}
+
+.wf-form-group {
+  margin-bottom: var(--sp-3);
+}
+
+.wf-form-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  color: var(--wf-text-muted);
+  margin-bottom: 3px;
+}
+
+.wf-form-input, .wf-form-select, .wf-form-textarea {
+  width: 100%;
+  padding: 7px 10px;
+  font-size: 13.5px;
+  border: 1.5px solid var(--wf-border-medium);
+  border-radius: var(--radius-sm);
+  background-color: #fff;
+}
+
+.wf-form-textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+
+/* ==========================================================================
+   RESPONSIVE QUERIES
+   ========================================================================== */
+@media (max-width: 960px) {
+  .wf-hero-grid,
+  .wf-split-cards,
+  .wf-first-time-wrap,
+  .wf-coaching-grid,
+  .wf-clinics-grid,
+  .wf-coaches-grid,
+  .wf-pricing-cards,
+  .wf-essentials-grid,
+  .wf-facilities-grid,
+  .wf-faq-2col,
+  .wf-contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wf-hero-headline {
+    font-size: 2.75rem;
+  }
+
+  .wf-hero-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .wf-nav-links {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .wf-hero-headline {
+    font-size: 2.15rem;
+  }
+  
+  .wf-segmented-pill-row {
+    flex-direction: column;
+    width: 100%;
+    border-radius: var(--radius-md);
+  }
+
+  .wf-pill-btn {
+    width: 100%;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+  }
+
+  .wf-hero-bar {
+    grid-template-columns: 1fr;
+  }
+}

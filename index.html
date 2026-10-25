@@ -3,398 +3,898 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Padel Club — Low-Fidelity Interactive Wireframe</title>
-  <meta name="description" content="Senior UX/UI Low-fidelity interactive wireframe prototype for a local community padel club.">
+  <title>VEYA Padel Club — Clean Single-Page Wireframe</title>
+  <meta name="description" content="Ultra-clean single-page wireframe for VEYA Padel Club with concise copy, interactive tabs, community matchmaking emphasis, and stacked pricing controls.">
   
-  <!-- Wireframe Stylesheets (Grayscale, Blueprint / Wireframe Hierarchy) -->
-  <link rel="stylesheet" href="css/wireframe-tokens.css">
-  <link rel="stylesheet" href="css/wireframe-components.css">
-  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/single-page-wireframe.css">
 </head>
-<body class="show-annotations">
+<body>
 
   <!-- ==========================================================================
-       UX CLIENT REVIEW & PROTOTYPE TOOLBAR (Sticky Top)
+       TOP UX REVIEW TOOLBAR (Client Inspection Controls)
        ========================================================================== -->
   <aside class="wf-review-bar" aria-label="UX Review Controls">
     <div class="wf-review-bar-left">
-      <span class="wf-review-tag">UX Wireframe v1.0</span>
-      <span style="color: #94a3b8;">|</span>
-      <label for="page-selector" style="color: #cbd5e1; font-weight: 500;">Jump to Page:</label>
-      <select id="page-selector" class="wf-select" style="width: auto; padding: 2px 8px; font-size: 11px; height: 26px; background: #1e293b; color: #fff; border-color: #475569;">
-        <option value="home">Homepage (Overview & Quick Book)</option>
-        <option value="play">Play / Court Booking Flow</option>
-        <option value="find-player">Find a Player (Solo Matchmaking)</option>
-        <option value="new-to-padel">New to Padel (Beginner Guide)</option>
-        <option value="classes">Classes & Coaching</option>
-        <option value="club">The Club & Facilities</option>
-      </select>
+      <span class="wf-review-chip">UX WIREFRAME v2.2</span>
+      <span style="color: #64748b;">•</span>
+      <span style="color: #cbd5e1; font-weight: 500;">Single-Page Layout • Concise Copy • Interactive Tabs</span>
     </div>
 
     <div class="wf-review-bar-right">
-      <button id="toggle-annotations-btn" class="wf-toggle-btn is-active" title="Toggle UX designer rationale notes">
-        📝 UX Notes: ON
+      <label for="section-jump-select" style="color: #94a3b8; font-size: 11px;">Jump:</label>
+      <select id="section-jump-select" class="wf-jump-select">
+        <option value="sec-hero">00 / Hero</option>
+        <option value="sec-ways">01 / Ways to Play</option>
+        <option value="sec-first-time">02 / First Time (Tabs)</option>
+        <option value="sec-coaching">03 / Coaching & Classes</option>
+        <option value="sec-pricing">04 / Pricing (Stacked)</option>
+        <option value="sec-club">05 / The Club</option>
+        <option value="sec-faq">06 / FAQ (2-Col)</option>
+        <option value="sec-contact">07 / Location</option>
+      </select>
+
+      <button id="toggle-notes-btn" class="wf-tool-btn active" title="Toggle UX rationale annotations on/off">
+        <span>📝</span> UX Notes: ON
       </button>
-      <button id="view-sitemap-btn" class="wf-toggle-btn" title="View sitemap & hierarchy">
-        🗺️ Sitemap
-      </button>
-      <button id="reset-prototype-btn" class="wf-toggle-btn" title="Reset all prototype interactions">
-        ↺ Reset
+
+      <button class="wf-tool-btn" data-trigger="playtomic-modal" title="Test Playtomic Integration Explainer">
+        <span>⚡</span> Playtomic Flow
       </button>
     </div>
   </aside>
 
   <!-- ==========================================================================
-       PRIMARY SITE HEADER & NAVIGATION
+       HEADER & NAVIGATION
        ========================================================================== -->
-  <header class="wf-header">
-    <div class="wf-container">
-      <div class="wf-nav-inner">
-        
-        <!-- Brand Logo Placeholder -->
-        <a href="#home" class="wf-brand" data-action="go-page" data-target="home">
-          <div class="wf-logo-placeholder">
-            <span>PC</span>
-          </div>
-          <div class="wf-brand-text">
-            <span class="wf-brand-title">THE PADEL CLUB</span>
-            <span class="wf-brand-sub">[Wireframe Preview]</span>
-          </div>
-        </a>
+  <header class="wf-navbar">
+    <div class="wf-container wf-nav-inner">
+      <a href="#sec-hero" class="wf-logo" aria-label="VEYA Padel Club Home">
+        <span class="wf-logo-icon">V</span>
+        <span>VEYA PADEL</span>
+      </a>
 
-        <!-- Main Navigation Links (Strict Information Architecture) -->
-        <nav aria-label="Main Navigation">
-          <ul class="wf-nav-links">
-            <li class="wf-nav-item">
-              <a href="#play" class="wf-nav-link" data-action="go-page" data-target="play">Play</a>
-            </li>
-            <li class="wf-nav-item">
-              <a href="#find-player" class="wf-nav-link" data-action="go-page" data-target="find-player">Find a Player</a>
-            </li>
-            <li class="wf-nav-item">
-              <a href="#new-to-padel" class="wf-nav-link" data-action="go-page" data-target="new-to-padel">New to Padel</a>
-            </li>
-            <li class="wf-nav-item">
-              <a href="#classes" class="wf-nav-link" data-action="go-page" data-target="classes">Classes</a>
-            </li>
-            <li class="wf-nav-item">
-              <a href="#club" class="wf-nav-link" data-action="go-page" data-target="club">The Club</a>
-            </li>
-          </ul>
-        </nav>
+      <nav aria-label="Main Navigation">
+        <ul class="wf-nav-links">
+          <li><a href="#sec-ways" class="wf-nav-link">Play</a></li>
+          <li><a href="#sec-first-time" class="wf-nav-link">First Time</a></li>
+          <li><a href="#sec-coaching" class="wf-nav-link">Coaching</a></li>
+          <li><a href="#sec-pricing" class="wf-nav-link">Pricing</a></li>
+          <li><a href="#sec-club" class="wf-nav-link">The Club</a></li>
+          <li><a href="#sec-contact" class="wf-nav-link">Contact</a></li>
+        </ul>
+      </nav>
 
-        <!-- Header Actions: Primary Conversion Goal -->
-        <div class="wf-nav-actions">
-          <button class="wf-btn wf-btn-primary" data-action="go-page" data-target="play">
+      <div class="wf-nav-actions">
+        <div>
+          <button class="wf-btn wf-btn-primary wf-btn-sm" data-trigger="playtomic-modal">
             Book a Court
           </button>
-          <button id="mobile-menu-btn" class="wf-mobile-menu-btn" aria-label="Open mobile menu">
-            ☰
-          </button>
+          
+          <div class="wf-ux-note" style="max-width: 240px;">
+            <div class="wf-ux-note-header">
+              <span class="wf-ux-note-badge">UX NOTE</span>
+              <span class="wf-ux-note-title">NAV CTA</span>
+            </div>
+            <p class="wf-ux-note-body">
+              Deep-links directly to VEYA schedule on <strong>Playtomic</strong>.
+            </p>
+          </div>
         </div>
-
       </div>
     </div>
   </header>
 
-  <!-- ==========================================================================
-       MAIN DYNAMIC APPLICATION ROOT (With pre-rendered Homepage content)
-       ========================================================================== -->
-  <main id="app-root" style="flex: 1;">
-    <!-- UX Annotation Note for Hero -->
-    <div class="wf-container">
-      <div class="wf-note-callout">
-        <div class="wf-note-callout-title">
-          <span>[UX Note: Homepage Structure & Conversion Goal]</span>
-        </div>
-        The homepage is designed to serve two primary audiences immediately: regular players who want to book a court in &lt; 3 clicks, and beginners who need to understand padel before committing. No heavy signups or app downloads required.
-      </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="wf-hero">
+  <main>
+    <!-- ========================================================================
+         SECTION 00: HERO (GOOD GAMES. GREAT PEOPLE.)
+         * Updated: Secondary CTA is now "Find a Match" (exact matching state)
+         ======================================================================== -->
+    <section id="sec-hero" class="wf-section" style="padding-top: var(--sp-10);">
       <div class="wf-container">
+        
         <div class="wf-hero-grid">
+          <!-- Left Column -->
           <div>
-            <div class="wf-hero-eyebrow">
-              <span class="wf-badge wf-badge-dark">South West London</span>
-              <span class="wf-badge">4 Panoramic Courts</span>
-              <span class="wf-badge">Open 7 Days</span>
-            </div>
-            <h1 class="wf-hero-title">Experience the Joy of Padel in Your Community</h1>
-            <p class="wf-hero-lead">
-              London's friendliest local padel club. 4 panoramic glass courts, beginner intro clinics, gear rental, and match matching for solo players.
+            <span class="wf-eyebrow">00 / PADEL CLUB & COMMUNITY</span>
+            <h1 class="wf-hero-headline">
+              Good Games.<br>Great People.
+            </h1>
+            <p class="wf-hero-desc">
+              4 panoramic indoor courts, certified coaching, and active community matchmaking. No membership needed.
             </p>
-            <div class="wf-hero-actions">
-              <button class="wf-btn wf-btn-primary wf-btn-lg" data-action="go-page" data-target="play">
-                Book a Court
-                <span aria-hidden="true">→</span>
-              </button>
-              <button class="wf-btn wf-btn-secondary wf-btn-lg" data-action="go-page" data-target="find-player">
-                Find a Player to Play With
-              </button>
-            </div>
-            <div class="wf-hero-meta">
-              <div class="wf-hero-meta-item">
-                <strong>✓</strong> No membership required
+
+            <div class="wf-hero-ctas">
+              <div>
+                <button class="wf-btn wf-btn-primary" data-trigger="playtomic-modal">
+                  Book a Court
+                </button>
+                <div class="wf-ux-note" style="max-width: 230px;">
+                  <div class="wf-ux-note-header">
+                    <span class="wf-ux-note-badge">UX NOTE</span>
+                    <span class="wf-ux-note-title">PRIMARY CTA</span>
+                  </div>
+                  <p class="wf-ux-note-body">Handoff to Playtomic court booking.</p>
+                </div>
               </div>
-              <div class="wf-hero-meta-item">
-                <strong>✓</strong> Racket hire at reception
-              </div>
-              <div class="wf-hero-meta-item">
-                <strong>✓</strong> Free ball tubes included
+
+              <div>
+                <a href="#sec-ways" class="wf-btn wf-btn-secondary">
+                  Find a Match
+                </a>
+                <div class="wf-ux-note" style="max-width: 230px;">
+                  <div class="wf-ux-note-header">
+                    <span class="wf-ux-note-badge">UX NOTE</span>
+                    <span class="wf-ux-note-title">SECONDARY CTA</span>
+                  </div>
+                  <p class="wf-ux-note-body">
+                    Exact same community CTA as Card 2. Drives solo players directly to open matchmaking.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
+
+          <!-- Right Column -->
           <div>
-            <div class="wf-img-box wf-ratio-4-3" style="min-height: 280px;">
-              <div class="wf-img-box-content">
-                [ Wireframe Illustration: Panoramic Glass Court with 4 Players in Action ]
-              </div>
+            <div class="wf-placeholder wf-hero-media">
+              <span class="wf-placeholder-badge">PHOTO: PANORAMIC COURT ACTION</span>
             </div>
           </div>
         </div>
+
+        <!-- Quick Facts Bar -->
+        <div class="wf-hero-bar">
+          <div class="wf-hero-bar-item">
+            <span class="wf-hero-bar-label">Courts</span>
+            <span class="wf-hero-bar-value">4 Panoramic Glass Courts</span>
+          </div>
+          <div class="wf-hero-bar-item">
+            <span class="wf-hero-bar-label">Climate</span>
+            <span class="wf-hero-bar-value">Indoor AC (21°C)</span>
+          </div>
+          <div class="wf-hero-bar-item">
+            <span class="wf-hero-bar-label">Booking</span>
+            <span class="wf-hero-bar-value">Powered by Playtomic</span>
+          </div>
+          <div class="wf-hero-bar-item">
+            <span class="wf-hero-bar-label">Access</span>
+            <span class="wf-hero-bar-value">Open to All • No Membership</span>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- Quick Booking Bar -->
-    <section class="wf-container">
-      <div class="wf-quick-book-box">
-        <div class="wf-quick-book-title">
-          <span>Quick Court Check</span>
-          <span class="wf-badge wf-badge-outline">Instant Availability Preview</span>
-        </div>
-        <div class="wf-quick-book-grid">
-          <div class="wf-form-group" style="margin-bottom: 0;">
-            <label class="wf-label">Select Date</label>
-            <select class="wf-select" id="quick-date-select">
-              <option value="today">Today</option>
-              <option value="tomorrow">Tomorrow</option>
-              <option value="weekend">This Weekend</option>
-            </select>
-          </div>
-          <div class="wf-form-group" style="margin-bottom: 0;">
-            <label class="wf-label">Court Preference</label>
-            <select class="wf-select" id="quick-court-select">
-              <option value="all">Any Court (Indoor or Canopy)</option>
-              <option value="indoor">Indoor (Air-Conditioned)</option>
-              <option value="canopy">Covered Outdoor Canopy</option>
-            </select>
-          </div>
-          <div class="wf-form-group" style="margin-bottom: 0;">
-            <label class="wf-label">Duration</label>
-            <select class="wf-select" id="quick-duration-select">
-              <option value="60">60 Minutes</option>
-              <option value="90" selected>90 Minutes (Recommended for Doubles)</option>
-            </select>
-          </div>
-          <div>
-            <button class="wf-btn wf-btn-primary wf-btn-block" id="quick-book-submit-btn" data-action="go-page" data-target="play">
-              Check Available Slots →
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Playing Options Overview -->
-    <section class="wf-section">
+    <!-- ========================================================================
+         SECTION 01: WAYS TO PLAY
+         * Updated: Short punchy text, big titles, 1-line meta, "Find a Match" CTA
+         ======================================================================== -->
+    <section id="sec-ways" class="wf-section wf-section-alt">
       <div class="wf-container">
-        <div class="wf-section-header">
-          <div class="wf-section-tag">Play at The Club</div>
-          <h2 class="wf-section-title">Three Ways to Get on Court</h2>
+        
+        <div class="wf-section-header wf-section-header-split">
+          <div>
+            <span class="wf-eyebrow">01 / WAYS TO PLAY</span>
+            <h2 class="wf-section-title">Your game. Your way.</h2>
+          </div>
           <p class="wf-section-subtitle">
-            Whether you have a full group of 4, you are flying solo, or you want to sharpen your technique, we have an option for you.
+            Book a court with friends or step on court solo to meet new players.
           </p>
         </div>
 
-        <div class="wf-options-grid">
-          <!-- Option 1: Court Booking -->
-          <div class="wf-card wf-option-card">
-            <div class="wf-img-box wf-ratio-16-9">
-              <div class="wf-img-box-content">[ Wireframe: Court Hire ]</div>
+        <div class="wf-split-cards">
+          <!-- Card 1: Private Booking -->
+          <div class="wf-play-card">
+            <div class="wf-placeholder wf-play-card-media">
+              <span class="wf-placeholder-badge">PHOTO: 2 OR 4 FRIENDS PLAYING</span>
             </div>
-            <div class="wf-option-card-body">
-              <div class="wf-badge wf-badge-dark" style="margin-bottom: 8px;">Most Popular</div>
-              <h3 class="wf-option-card-title">Book a Court</h3>
-              <p class="wf-option-card-desc">
-                Rent one of our 4 tournament-grade courts for 60 or 90 minutes. Split the cost easily with your 3 playing partners.
+            <div class="wf-play-card-content">
+              <span class="wf-play-card-badge">PRIVATE COURT RESERVATION</span>
+              <h3 class="wf-play-card-title">Bring your crew</h3>
+              <p class="wf-play-card-text">
+                Got your players? Choose a time and book a court for your group.
               </p>
-              <ul class="wf-option-features">
-                <li><span>•</span> From £36 / hr (£9 per person)</li>
-                <li><span>•</span> Choose Indoor AC or Covered Canopy</li>
-                <li><span>•</span> Free cancellation up to 12h before</li>
-              </ul>
+              
+              <!-- 1-Line Clean Metadata Strip -->
+              <div class="wf-play-card-meta-bar">
+                <span>2 or 4 Players</span>
+                <span class="wf-meta-bullet">•</span>
+                <span>60 / 90 Min</span>
+                <span class="wf-meta-bullet">•</span>
+                <span>Pay in Full or Split</span>
+              </div>
+
+              <div>
+                <button class="wf-btn wf-btn-primary wf-btn-full" data-trigger="playtomic-modal">
+                  Book a Court
+                </button>
+                <div class="wf-ux-note">
+                  <div class="wf-ux-note-header">
+                    <span class="wf-ux-note-badge">UX NOTE</span>
+                    <span class="wf-ux-note-title">PRIMARY STATE</span>
+                  </div>
+                  <p class="wf-ux-note-body">Solid black button — matches the Hero primary action.</p>
+                </div>
+              </div>
             </div>
-            <button class="wf-btn wf-btn-primary wf-btn-block" data-action="go-page" data-target="play">
-              View Court Calendar →
-            </button>
           </div>
 
-          <!-- Option 2: Find a Player -->
-          <div class="wf-card wf-option-card">
-            <div class="wf-img-box wf-ratio-16-9">
-              <div class="wf-img-box-content">[ Wireframe: Player Matchmaking ]</div>
+          <!-- Card 2: Community Matchmaking -->
+          <div class="wf-play-card">
+            <div class="wf-placeholder wf-play-card-media">
+              <span class="wf-placeholder-badge">PHOTO: SOLO PLAYER JOINING MATCH</span>
             </div>
-            <div class="wf-option-card-body">
-              <div class="wf-badge" style="margin-bottom: 8px;">Solo &amp; Pairs</div>
-              <h3 class="wf-option-card-title">Find a Player</h3>
-              <p class="wf-option-card-desc">
-                Don't have enough players? Join an open match or post your own. Minimum 2 players to play, with guaranteed automatic refunds.
+            <div class="wf-play-card-content">
+              <span class="wf-play-card-badge">COMMUNITY MATCHMAKING</span>
+              <h3 class="wf-play-card-title">No partner? No problem.</h3>
+              <p class="wf-play-card-text">
+                Come solo. Join an open match or start one and meet new players.
               </p>
-              <ul class="wf-option-features">
-                <li><span>•</span> Join open games by skill level</li>
-                <li><span>•</span> Guaranteed refund if no match is formed</li>
-                <li><span>•</span> Meet other local club players</li>
-              </ul>
-            </div>
-            <button class="wf-btn wf-btn-secondary wf-btn-block" data-action="go-page" data-target="find-player">
-              Browse Open Games →
-            </button>
-          </div>
+              
+              <!-- 1-Line Clean Metadata Strip -->
+              <div class="wf-play-card-meta-bar">
+                <span>Solo or Duo Entry</span>
+                <span class="wf-meta-bullet">•</span>
+                <span>Rated 1.0–5.0</span>
+                <span class="wf-meta-bullet">•</span>
+                <span>Open Community Games</span>
+              </div>
 
-          <!-- Option 3: Classes & Coaching -->
-          <div class="wf-card wf-option-card">
-            <div class="wf-img-box wf-ratio-16-9">
-              <div class="wf-img-box-content">[ Wireframe: Coaching Clinic ]</div>
+              <div>
+                <button class="wf-btn wf-btn-secondary wf-btn-full" data-trigger="playtomic-modal">
+                  Find a Match
+                </button>
+                <div class="wf-ux-note">
+                  <div class="wf-ux-note-header">
+                    <span class="wf-ux-note-badge">UX NOTE</span>
+                    <span class="wf-ux-note-title">SECONDARY STATE</span>
+                  </div>
+                  <p class="wf-ux-note-body">
+                    Outline button — matches the Hero secondary action state.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="wf-option-card-body">
-              <div class="wf-badge" style="margin-bottom: 8px;">All Skill Levels</div>
-              <h3 class="wf-option-card-title">Classes &amp; Coaching</h3>
-              <p class="wf-option-card-desc">
-                Learn wall defense, positioning, and overhead shots with LTA certified coaches in beginner clinics or private 1-on-1s.
-              </p>
-              <ul class="wf-option-features">
-                <li><span>•</span> Beginner intro clinics from £18</li>
-                <li><span>•</span> 1-on-1 private technical coaching</li>
-                <li><span>•</span> Youth academy for kids &amp; teens</li>
-              </ul>
-            </div>
-            <button class="wf-btn wf-btn-secondary wf-btn-block" data-action="go-page" data-target="classes">
-              Explore Coaching →
-            </button>
           </div>
         </div>
+
       </div>
     </section>
 
-    <!-- Beginner Section Preview -->
-    <section class="wf-section wf-section-muted">
+    <!-- ========================================================================
+         SECTION 02: FIRST TIME PLAYING?
+         * Updated: Interactive Tabs, concise copy, coaching CTAs (No popup!)
+         ======================================================================== -->
+    <section id="sec-first-time" class="wf-section">
       <div class="wf-container">
-        <div class="wf-beginner-box">
-          <div class="wf-section-tag">New to Padel?</div>
-          <h2 class="wf-section-title">The World's Fastest Growing Sport is Easy to Learn</h2>
+        
+        <div class="wf-first-time-wrap">
+          <!-- Left: Balanced Visual Box -->
+          <div>
+            <div class="wf-placeholder wf-first-time-media">
+              <span class="wf-placeholder-badge">PHOTO: FIRST TIME ON COURT</span>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Tabs & Coaching CTAs -->
+          <div class="wf-first-time-content">
+            <span class="wf-eyebrow">02 / FIRST TIME PLAYING?</span>
+            <h2 class="wf-section-title">Everybody starts somewhere.</h2>
+            <p class="wf-section-subtitle" style="margin-top: 4px;">
+              Padel is easy to pick up from day one. Here is what you need to know:
+            </p>
+
+            <!-- Accessible Tabs Navigation -->
+            <div class="wf-tabs-nav" role="tablist">
+              <button class="wf-tab-btn active" data-tab-target="tab-gear" role="tab" aria-selected="true">
+                01 / Rackets & Shoes
+              </button>
+              <button class="wf-tab-btn" data-tab-target="tab-rules" role="tab" aria-selected="false">
+                02 / 60-Sec Rules
+              </button>
+              <button class="wf-tab-btn" data-tab-target="tab-classes" role="tab" aria-selected="false">
+                03 / Learn & Play
+              </button>
+            </div>
+
+            <!-- Tab Content Panes -->
+            <div id="tab-gear" class="wf-tab-pane active" role="tabpanel">
+              <h4>Zero gear required</h4>
+              <p>Top-tier rental rackets and match balls are waiting at reception. Just show up in clean, flat athletic sneakers.</p>
+            </div>
+
+            <div id="tab-rules" class="wf-tab-pane" role="tabpanel">
+              <h4>Simple, fast rules</h4>
+              <p>Underhand serve below the waist. Glass walls keep the ball in play. Standard tennis scoring (15-30-40). Long rallies in 10 minutes.</p>
+            </div>
+
+            <div id="tab-classes" class="wf-tab-pane" role="tabpanel">
+              <h4>Get assessed & start right</h4>
+              <p>Join group coaching or request a private coach. We assess your background to place you with the right peer group.</p>
+            </div>
+
+            <!-- Clear Action Buttons: Coaching & Coaches -->
+            <div style="display: flex; gap: var(--sp-3); flex-wrap: wrap;">
+              <div>
+                <a href="#group-coaching-showcase" class="wf-btn wf-btn-primary">
+                  Book Coaching
+                </a>
+                <div class="wf-ux-note" style="max-width: 230px;">
+                  <div class="wf-ux-note-header">
+                    <span class="wf-ux-note-badge">UX NOTE</span>
+                    <span class="wf-ux-note-title">GROUP COACHING</span>
+                  </div>
+                  <p class="wf-ux-note-body">Scrolls directly to group coaching in Section 03.</p>
+                </div>
+              </div>
+
+              <div>
+                <a href="#coaches-showcase" class="wf-btn wf-btn-secondary">
+                  Meet Our Coaches
+                </a>
+                <div class="wf-ux-note" style="max-width: 230px;">
+                  <div class="wf-ux-note-header">
+                    <span class="wf-ux-note-badge">UX NOTE</span>
+                    <span class="wf-ux-note-title">COACHES CTA</span>
+                  </div>
+                  <p class="wf-ux-note-body">Scrolls directly to coach profiles in Section 03.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 03: COACHING & ACADEMY (Short & Punchy)
+         ======================================================================== -->
+    <section id="sec-coaching" class="wf-section wf-section-alt">
+      <div class="wf-container">
+        
+        <div class="wf-section-header wf-section-header-split">
+          <div>
+            <span class="wf-eyebrow">03 / COACHING & ACADEMY</span>
+            <h2 class="wf-section-title">Find your next level.</h2>
+          </div>
           <p class="wf-section-subtitle">
-            Think tennis meets squash. It's played in doubles on an enclosed glass court, using solid rackets. You can pick up the fundamentals in your first 15 minutes.
+            Certified coaches to sharpen your technique, wall rebounds, and match tactics.
           </p>
+        </div>
 
-          <div class="wf-beginner-steps">
-            <div class="wf-step-card">
-              <div class="wf-step-num">Step 01</div>
-              <h4 class="wf-step-title">No Equipment Needed</h4>
-              <p class="wf-step-desc">
-                Don't own a padel racket? Simply rent one for £4 at our pro desk. Balls are always provided complimentary.
-              </p>
+        <!-- Short Assessment Policy Alert Banner -->
+        <div class="wf-policy-alert">
+          <span>ℹ️</span>
+          <div>
+            <strong>Level Check Required:</strong> All new students complete a quick screening before group placement to guarantee balanced play.
+          </div>
+        </div>
+
+        <!-- 2 Main Tracks -->
+        <div class="wf-coaching-grid">
+          <div class="wf-play-card">
+            <div class="wf-placeholder wf-play-card-media">
+              <span class="wf-placeholder-badge">PHOTO: GROUP COACHING</span>
             </div>
-            <div class="wf-step-card">
-              <div class="wf-step-num">Step 02</div>
-              <h4 class="wf-step-title">Join a Saturday Clinic</h4>
-              <p class="wf-step-desc">
-                Our 60-minute "Intro to Padel" group clinics walk you through rules, court etiquette, and glass wall rebounds.
+            <div class="wf-play-card-content">
+              <span class="wf-play-card-badge">GROUP TRAINING</span>
+              <h3 class="wf-play-card-title">Group Coaching</h3>
+              <p class="wf-play-card-text">
+                60-minute tactical drills and match situations. Strict 1:4 coach ratio.
               </p>
-            </div>
-            <div class="wf-step-card">
-              <div class="wf-step-num">Step 03</div>
-              <h4 class="wf-step-title">Start Playing Games</h4>
-              <p class="wf-step-desc">
-                Jump into beginner-friendly open matches or book an off-peak court with colleagues or friends.
-              </p>
+              <div class="wf-play-card-meta-bar">
+                <span>⏱️ 60 Min</span>
+                <span class="wf-meta-bullet">•</span>
+                <span>Max 4 Players</span>
+                <span class="wf-meta-bullet">•</span>
+                <span>Levels 1.0–4.5+</span>
+              </div>
+              <a href="#group-coaching-showcase" class="wf-btn wf-btn-primary wf-btn-full">
+                View Group Coaching ↓
+              </a>
             </div>
           </div>
 
-          <div style="display: flex; gap: var(--space-3); flex-wrap: wrap;">
-            <button class="wf-btn wf-btn-primary" data-action="go-page" data-target="new-to-padel">
-              Read the Beginner's Guide →
+          <div class="wf-play-card">
+            <div class="wf-placeholder wf-play-card-media">
+              <span class="wf-placeholder-badge">PHOTO: PRIVATE COACHING</span>
+            </div>
+            <div class="wf-play-card-content">
+              <span class="wf-play-card-badge">INDIVIDUAL & DUO</span>
+              <h3 class="wf-play-card-title">Private Coaching</h3>
+              <p class="wf-play-card-text">
+                Customized technical progression with slow-motion video analysis.
+              </p>
+              <div class="wf-play-card-meta-bar">
+                <span>⏱️ 60 / 90 Min</span>
+                <span class="wf-meta-bullet">•</span>
+                <span>1-on-1 or Duo</span>
+                <span class="wf-meta-bullet">•</span>
+                <span>Video Review</span>
+              </div>
+              <a href="#coaches-showcase" class="wf-btn wf-btn-secondary wf-btn-full">
+                Meet Coaches Below ↓
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUBSECTION: GROUP COACHING SHOWCASE -->
+        <div id="group-coaching-showcase" class="wf-subheading-block">
+          <h3>Group Coaching by Level</h3>
+          <p>Select a group coaching session below to submit your screening application.</p>
+        </div>
+
+        <div class="wf-clinics-grid">
+          <div class="wf-clinic-card">
+            <span class="wf-clinic-level-badge">LEVEL 1.0–1.5</span>
+            <h4 class="wf-clinic-title">Fundamentals</h4>
+            <p class="wf-clinic-desc">
+              Grip, continental swing, underhand serve, and basic glass positioning.
+            </p>
+            <div class="wf-clinic-specs">
+              <span>Sat & Tue 18:00</span>
+              <span>$25 / session</span>
+            </div>
+            <button class="wf-btn wf-btn-primary wf-btn-full wf-btn-sm" data-trigger="coaching-modal" data-program="Fundamentals Group Coaching (Level 1.0-1.5)">
+              Select & Request
             </button>
-            <button class="wf-btn wf-btn-secondary" data-action="go-page" data-target="classes">
-              Book Saturday Intro Clinic (£18)
+          </div>
+
+          <div class="wf-clinic-card">
+            <span class="wf-clinic-level-badge" style="background-color: #0284c7;">LEVEL 2.0–3.0</span>
+            <h4 class="wf-clinic-title">Glass Play & Net</h4>
+            <p class="wf-clinic-desc">
+              Double-glass defense, net transitions, and defensive lob accuracy.
+            </p>
+            <div class="wf-clinic-specs">
+              <span>Sun & Wed 19:30</span>
+              <span>$30 / session</span>
+            </div>
+            <button class="wf-btn wf-btn-primary wf-btn-full wf-btn-sm" data-trigger="coaching-modal" data-program="Glass Play Group Coaching (Level 2.0-3.0)">
+              Select & Request
+            </button>
+          </div>
+
+          <div class="wf-clinic-card">
+            <span class="wf-clinic-level-badge" style="background-color: #7c3aed;">LEVEL 3.5+</span>
+            <h4 class="wf-clinic-title">Bandeja & Strategy</h4>
+            <p class="wf-clinic-desc">
+              Attacking overheads (Bandeja / Vibora) and match pressure tactics.
+            </p>
+            <div class="wf-clinic-specs">
+              <span>Mon & Thu 20:00</span>
+              <span>$35 / session</span>
+            </div>
+            <button class="wf-btn wf-btn-primary wf-btn-full wf-btn-sm" data-trigger="coaching-modal" data-program="Advanced Group Coaching (Level 3.5+)">
+              Select & Request
             </button>
           </div>
         </div>
+
+        <!-- SUBSECTION: MEET OUR COACHES -->
+        <div id="coaches-showcase" class="wf-subheading-block">
+          <h3>Meet Our Certified Coaches</h3>
+          <p>Request an assessment with your preferred coach.</p>
+        </div>
+
+        <div class="wf-coaches-grid">
+          <div class="wf-coach-card">
+            <div class="wf-placeholder wf-coach-avatar-ph">
+              <span class="wf-placeholder-badge">PHOTO: CARLOS</span>
+            </div>
+            <div class="wf-coach-content">
+              <h4 class="wf-coach-name">Carlos Mendez</h4>
+              <span class="wf-coach-title">Head Coach • Spain</span>
+              <p class="wf-coach-bio">
+                12+ years experience. Spanish Padel Federation Level 3. Advanced tactical setups and tournament prep.
+              </p>
+              <div class="wf-coach-cert">FEP Level 3 • Ex-WPT Coach</div>
+              <button class="wf-btn wf-btn-primary wf-btn-full wf-btn-sm" data-trigger="coaching-modal" data-program="Private Coaching with Carlos">
+                Request Coach
+              </button>
+            </div>
+          </div>
+
+          <div class="wf-coach-card">
+            <div class="wf-placeholder wf-coach-avatar-ph">
+              <span class="wf-placeholder-badge">PHOTO: ELENA</span>
+            </div>
+            <div class="wf-coach-content">
+              <h4 class="wf-coach-name">Elena Rostova</h4>
+              <span class="wf-coach-title">Senior Coach • Glass Play</span>
+              <p class="wf-coach-bio">
+                Patient, structured methodology for beginners and intermediate players. Corner defense specialist.
+              </p>
+              <div class="wf-coach-cert">PTR Certified • Ex-Pro Tennis</div>
+              <button class="wf-btn wf-btn-primary wf-btn-full wf-btn-sm" data-trigger="coaching-modal" data-program="Private Coaching with Elena">
+                Request Coach
+              </button>
+            </div>
+          </div>
+
+          <div class="wf-coach-card">
+            <div class="wf-placeholder wf-coach-avatar-ph">
+              <span class="wf-placeholder-badge">PHOTO: TAREQ</span>
+            </div>
+            <div class="wf-coach-content">
+              <h4 class="wf-coach-name">Tareq Al-Mansoor</h4>
+              <span class="wf-coach-title">Performance Coach</span>
+              <p class="wf-coach-bio">
+                Head of Junior Academy and adult athletic conditioning. Biomechanics and high-speed match drills.
+              </p>
+              <div class="wf-coach-cert">National Coach • CSCS Specialist</div>
+              <button class="wf-btn wf-btn-primary wf-btn-full wf-btn-sm" data-trigger="coaching-modal" data-program="Private Coaching with Tareq">
+                Request Coach
+              </button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- Facilities Preview -->
-    <section class="wf-section">
+    <!-- ========================================================================
+         SECTION 04: PRICING & ESSENTIALS (Stacked Pills & Concise)
+         ======================================================================== -->
+    <section id="sec-pricing" class="wf-section">
       <div class="wf-container">
-        <div class="wf-section-header">
-          <div class="wf-section-tag">Facilities &amp; Atmosphere</div>
-          <h2 class="wf-section-title">Built for Great Games and Social Connection</h2>
+        
+        <div class="wf-section-header wf-section-header-split">
+          <div>
+            <span class="wf-eyebrow">04 / PRICING & ESSENTIALS</span>
+            <h2 class="wf-section-title">Simple to plan. Easy to play.</h2>
+          </div>
           <p class="wf-section-subtitle">
-            A welcoming community hub featuring high-spec courts, comfortable social lounge, and hassle-free parking.
+            Transparent court rates. Book on Playtomic and split payments automatically.
+          </p>
+        </div>
+
+        <!-- Stacked Segmented Pill Controls -->
+        <div class="wf-pricing-control-stack">
+          <div class="wf-segmented-pill-row">
+            <button class="wf-pill-btn active" data-duration="90">
+              <span>⏱️</span> 90 Min (Recommended)
+            </button>
+            <button class="wf-pill-btn" data-duration="60">
+              <span>⏱️</span> 60 Min (Fast Match)
+            </button>
+          </div>
+
+          <div class="wf-segmented-pill-row">
+            <button class="wf-pill-btn active" data-price-mode="player">
+              <span>👤</span> Per Player (÷ 4)
+            </button>
+            <button class="wf-pill-btn" data-price-mode="court">
+              <span>🏟️</span> Total Court Price
+            </button>
+          </div>
+        </div>
+
+        <!-- 2 Main Court Pricing Cards -->
+        <div class="wf-pricing-cards">
+          <!-- Off-Peak Card -->
+          <div class="wf-price-card">
+            <div class="wf-price-header">
+              <h3 class="wf-price-tier-name">Off-Peak Court</h3>
+              <p class="wf-price-hours">Mon – Fri | 06:00 – 16:00</p>
+            </div>
+
+            <div class="wf-price-amount-box">
+              <div id="offpeak-big-price" class="wf-price-big">$16</div>
+              <div id="offpeak-unit" class="wf-price-unit">/ player (4 players)</div>
+              <div id="offpeak-sub" class="wf-price-subtext">Total Court: $64 for 90 min</div>
+            </div>
+
+            <ul class="wf-price-features">
+              <li class="wf-price-feature-item">
+                <span class="wf-price-check">✓</span>
+                <span>Full court for 2 or 4 players</span>
+              </li>
+              <li class="wf-price-feature-item">
+                <span class="wf-price-check">✓</span>
+                <span>Great for flexible remote hours & beginners</span>
+              </li>
+              <li class="wf-price-feature-item">
+                <span class="wf-price-check">✓</span>
+                <span>Free showers, lockers, towels & parking</span>
+              </li>
+            </ul>
+
+            <button class="wf-btn wf-btn-secondary wf-btn-full" data-trigger="playtomic-modal">
+              Book Off-Peak on Playtomic
+            </button>
+          </div>
+
+          <!-- Peak Card (Featured) -->
+          <div class="wf-price-card featured">
+            <span class="wf-featured-tag">POPULAR</span>
+            <div class="wf-price-header">
+              <h3 class="wf-price-tier-name">Peak Court</h3>
+              <p class="wf-price-hours">Weekdays 16:00–24:00 & All Weekends</p>
+            </div>
+
+            <div class="wf-price-amount-box">
+              <div id="peak-big-price" class="wf-price-big">$24</div>
+              <div id="peak-unit" class="wf-price-unit">/ player (4 players)</div>
+              <div id="peak-sub" class="wf-price-subtext">Total Court: $96 for 90 min</div>
+            </div>
+
+            <ul class="wf-price-features">
+              <li class="wf-price-feature-item">
+                <span class="wf-price-check">✓</span>
+                <span>Full court for 2 or 4 players</span>
+              </li>
+              <li class="wf-price-feature-item">
+                <span class="wf-price-check">✓</span>
+                <span>Prime floodlit evening atmosphere</span>
+              </li>
+              <li class="wf-price-feature-item">
+                <span class="wf-price-check">✓</span>
+                <span>Automated split payment in Playtomic</span>
+              </li>
+            </ul>
+
+            <button class="wf-btn wf-btn-primary wf-btn-full" data-trigger="playtomic-modal">
+              Book Peak on Playtomic
+            </button>
+          </div>
+        </div>
+
+        <!-- Playtomic Split Notice -->
+        <div class="wf-playtomic-banner">
+          <span>⚡</span>
+          <span><strong>Automatic Split Pay:</strong> Reserve the court in Playtomic; your teammates pay their share ($16 or $24) directly in the app.</span>
+        </div>
+
+        <!-- Essentials Grid -->
+        <div class="wf-essentials-grid">
+          <div class="wf-essentials-block">
+            <h4>Equipment Rental</h4>
+            <div class="wf-addons-list">
+              <div class="wf-addon-item">
+                <span>Premium Racket Rental (Bullpadel / Nox)</span>
+                <span class="wf-addon-price">$5 / match</span>
+              </div>
+              <div class="wf-addon-item">
+                <span>Can of 3 Pro Padel Balls (To keep)</span>
+                <span class="wf-addon-price">$8 / can</span>
+              </div>
+              <div class="wf-addon-item">
+                <span>Overgrip Replacement</span>
+                <span class="wf-addon-price">$4</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="wf-essentials-block">
+            <h4>Included 100% Free</h4>
+            <div class="wf-addons-list">
+              <div class="wf-addon-item">
+                <span>Hot showers & fresh towel service</span>
+                <span class="wf-addon-price" style="color: #16a34a;">FREE</span>
+              </div>
+              <div class="wf-addon-item">
+                <span>Keycode security lockers</span>
+                <span class="wf-addon-price" style="color: #16a34a;">FREE</span>
+              </div>
+              <div class="wf-addon-item">
+                <span>Dedicated on-site shaded parking</span>
+                <span class="wf-addon-price" style="color: #16a34a;">FREE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 05: THE CLUB & FACILITIES
+         ======================================================================== -->
+    <section id="sec-club" class="wf-section wf-section-alt">
+      <div class="wf-container">
+        
+        <div class="wf-section-header wf-section-header-split">
+          <div>
+            <span class="wf-eyebrow">05 / THE CLUB</span>
+            <h2 class="wf-section-title">A place to play and connect.</h2>
+          </div>
+          <p class="wf-section-subtitle">
+            Sport, coffee, and community under one roof.
           </p>
         </div>
 
         <div class="wf-facilities-grid">
-          <div class="wf-facility-item">
-            <div class="wf-facility-name">✓ 4 Panoramic Glass Courts</div>
-            <div class="wf-facility-desc">2 climate-controlled indoor courts + 2 covered canopy courts.</div>
+          <div class="wf-facility-card">
+            <div class="wf-placeholder wf-facility-media">
+              <span class="wf-placeholder-badge">PHOTO: 4 COURTS</span>
+            </div>
+            <div class="wf-facility-content">
+              <h3 class="wf-facility-title">4 Panoramic Courts</h3>
+              <p class="wf-facility-desc">Italian blue turf, 12mm glass walls, and shadowless LED floodlights.</p>
+            </div>
           </div>
-          <div class="wf-facility-item">
-            <div class="wf-facility-name">✓ Pro Shop &amp; Demo Hire</div>
-            <div class="wf-facility-desc">Premium Bullpadel &amp; Babolat demo rackets. Racket hire £4.</div>
+
+          <div class="wf-facility-card">
+            <div class="wf-placeholder wf-facility-media">
+              <span class="wf-placeholder-badge">PHOTO: CLUB CAFE</span>
+            </div>
+            <div class="wf-facility-content">
+              <h3 class="wf-facility-title">Clubhouse Cafe</h3>
+              <p class="wf-facility-desc">Specialty espresso, protein smoothies, and viewing terrace.</p>
+            </div>
           </div>
-          <div class="wf-facility-item">
-            <div class="wf-facility-name">✓ Cafe &amp; Social Viewing Lounge</div>
-            <div class="wf-facility-desc">Barista coffee, smoothies, cold refreshments, and spectator viewing.</div>
-          </div>
-          <div class="wf-facility-item">
-            <div class="wf-facility-name">✓ Free 28-Bay Parking</div>
-            <div class="wf-facility-desc">Dedicated on-site parking with EV charge points and bicycle bays.</div>
+
+          <div class="wf-facility-card">
+            <div class="wf-placeholder wf-facility-media">
+              <span class="wf-placeholder-badge">PHOTO: PRO SHOP</span>
+            </div>
+            <div class="wf-facility-content">
+              <h3 class="wf-facility-title">Pro Shop & Demo Center</h3>
+              <p class="wf-facility-desc">Test 20+ demo rackets before buying. Apparel, grips, and gear.</p>
+            </div>
           </div>
         </div>
 
-        <div style="margin-top: var(--space-6); text-align: center;">
-          <button class="wf-btn wf-btn-outline" data-action="go-page" data-target="club">
-            View Court Photos &amp; Club Tour →
-          </button>
-        </div>
       </div>
     </section>
 
-    <!-- Location & Contact Banner -->
-    <section class="wf-section wf-section-muted">
+    <!-- ========================================================================
+         SECTION 06: QUESTIONS & FAQ (Balanced 2-Column)
+         ======================================================================== -->
+    <section id="sec-faq" class="wf-section">
       <div class="wf-container">
-        <div class="wf-contact-banner">
-          <div>
-            <div class="wf-section-tag">Find &amp; Contact Us</div>
-            <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: var(--space-2);">
-              The Padel Club
-            </h3>
-            <p style="font-size: var(--text-sm); color: var(--wf-text-secondary); margin-bottom: var(--space-4);">
-              📍 14 Padel Way, Riverside District, SW18 4XQ<br>
-              🕒 Open Daily from 07:00 – 23:00 (Floodlit until close)
-            </p>
-            <p style="font-size: var(--text-xs); color: var(--wf-text-muted); margin-bottom: var(--space-4);">
-              Questions about private events, court hire, or racket demos? Chat with our team directly.
-            </p>
-            <div style="display: flex; gap: var(--space-3); flex-wrap: wrap;">
-              <a href="https://wa.me/447700900821" target="_blank" class="wf-btn wf-btn-primary wf-btn-sm">
-                💬 WhatsApp Us (+44 7700 900821)
-              </a>
-              <button class="wf-btn wf-btn-secondary wf-btn-sm" data-action="go-page" data-target="club">
-                Directions &amp; Parking Details
+        
+        <div class="wf-section-header">
+          <span class="wf-eyebrow">06 / FAQ</span>
+          <h2 class="wf-section-title">Questions? We got you.</h2>
+        </div>
+
+        <div class="wf-faq-2col">
+          <!-- Left Column -->
+          <div class="wf-faq-list">
+            <div class="wf-faq-item open">
+              <button class="wf-faq-question">
+                <span>Do I need a membership to play?</span>
+                <span class="wf-faq-icon">+</span>
               </button>
+              <div class="wf-faq-answer">
+                No. VEYA is 100% pay-and-play. Book courts or join matches on Playtomic with no subscription fees.
+              </div>
             </div>
-          </div>
-          <div>
-            <div class="wf-img-box wf-ratio-16-9">
-              <div class="wf-img-box-content">
-                [ Interactive Map Placeholder: Riverside District, 5-min walk from Tube ]
+
+            <div class="wf-faq-item">
+              <button class="wf-faq-question">
+                <span>Can we play with 2 players or must it be 4?</span>
+                <span class="wf-faq-icon">+</span>
+              </button>
+              <div class="wf-faq-answer">
+                Both! Padel is standard 4 players (doubles), but 2 players (singles / cross-court drills) is very popular. Same court booking applies.
+              </div>
+            </div>
+
+            <div class="wf-faq-item">
+              <button class="wf-faq-question">
+                <span>How does the coaching assessment work?</span>
+                <span class="wf-faq-icon">+</span>
+              </button>
+              <div class="wf-faq-answer">
+                Submit a 2-minute screening form above. Our head coach reviews your sporting background and confirms your class tier within 24 hours.
+              </div>
+            </div>
+
+            <div class="wf-faq-item">
+              <button class="wf-faq-question">
+                <span>How does Playtomic split payment work?</span>
+                <span class="wf-faq-icon">+</span>
+              </button>
+              <div class="wf-faq-answer">
+                The organizer reserves the court. Each friend is invited via the app and pays their share directly before the match.
+              </div>
+            </div>
+
+            <div class="wf-faq-item">
+              <button class="wf-faq-question">
+                <span>What shoes should I wear?</span>
+                <span class="wf-faq-icon">+</span>
+              </button>
+              <div class="wf-faq-answer">
+                Flat-soled tennis, padel, or gym sneakers with non-marking rubber soles. Running shoes with thick heels are discouraged.
               </div>
             </div>
           </div>
+
+          <!-- Right Column -->
+          <div class="wf-faq-side-box">
+            <div class="wf-placeholder wf-faq-photo-ph">
+              <span class="wf-placeholder-badge">PHOTO: FRONT DESK TEAM ASSISTING PLAYERS</span>
+            </div>
+
+            <div class="wf-faq-help-card">
+              <h4>Still have questions?</h4>
+              <p>Our team is on court daily from 06:00 to 24:00. Reach out on WhatsApp for fast answers.</p>
+              
+              <a href="https://wa.me/971500000000" target="_blank" class="wf-btn wf-btn-secondary wf-btn-full wf-btn-sm">
+                Chat on WhatsApp
+              </a>
+            </div>
+          </div>
         </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 07: LOCATION & CONTACT
+         ======================================================================== -->
+    <section id="sec-contact" class="wf-section wf-section-alt">
+      <div class="wf-container">
+        
+        <div class="wf-section-header">
+          <span class="wf-eyebrow">07 / LOCATION & HOURS</span>
+          <h2 class="wf-section-title">See you on court.</h2>
+        </div>
+
+        <div class="wf-contact-grid">
+          <div class="wf-contact-info">
+            <div>
+              <div class="wf-contact-block">
+                <div class="wf-contact-label">Opening Hours</div>
+                <div class="wf-contact-val">Mon – Fri: 06:00 – 24:00</div>
+                <div class="wf-contact-val">Sat – Sun: 07:00 – 24:00</div>
+              </div>
+
+              <div class="wf-contact-block">
+                <div class="wf-contact-label">Location & Parking</div>
+                <div class="wf-contact-val">14 Padel Boulevard, Sports City District</div>
+                <p style="font-size: 12.5px; color: var(--wf-text-muted); margin-top: 2px;">
+                  Free on-site parking for 60+ cars directly at reception.
+                </p>
+              </div>
+
+              <div class="wf-contact-block">
+                <div class="wf-contact-label">Contact</div>
+                <div class="wf-contact-val">+971 4 000 0000 • info@veyapadel.com</div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: var(--sp-3); flex-wrap: wrap;">
+              <a href="https://maps.google.com" target="_blank" class="wf-btn wf-btn-secondary wf-btn-sm">
+                Open in Google Maps
+              </a>
+              <a href="https://wa.me/971500000000" target="_blank" class="wf-btn wf-btn-secondary wf-btn-sm">
+                WhatsApp Concierge
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <div class="wf-placeholder wf-contact-map-placeholder">
+              <span class="wf-placeholder-badge">MAP: GEO PIN & PARKING ENTRANCE</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         BOTTOM GLOBAL CTA
+         ======================================================================== -->
+    <section class="wf-bottom-cta">
+      <div class="wf-container wf-bottom-cta-inner">
+        <div class="wf-bottom-cta-left">
+          <span class="wf-eyebrow" style="color: #94a3b8;">READY TO PLAY?</span>
+          <h3>One more game?</h3>
+          <p>Live availability and 4-way split bookings take 2 minutes on Playtomic.</p>
+        </div>
+
+        <button class="wf-btn wf-btn-primary" style="background-color: #fff; color: #0f172a;" data-trigger="playtomic-modal">
+          Book Court on Playtomic
+        </button>
       </div>
     </section>
   </main>
@@ -403,78 +903,119 @@
        SITE FOOTER
        ========================================================================== -->
   <footer class="wf-footer">
-    <div class="wf-container">
-      <div class="wf-footer-grid">
-        
-        <!-- Brand Column -->
-        <div class="wf-footer-col">
-          <h4 style="color: #ffffff; font-weight: 700; margin-bottom: 8px;">The Padel Club</h4>
-          <p style="font-size: 13px; line-height: 1.6; margin-bottom: 16px;">
-            A friendly, local community club with 4 panoramic glass courts, beginner intro clinics, gear rental, and solo player matchmaking.
-          </p>
-          <div style="font-size: 12px; color: #94a3b8;">
-            📍 14 Padel Way, Riverside District, SW18 4XQ<br>
-            📞 +44 20 7946 0912 • 💬 WhatsApp +44 7700 900821
-          </div>
-        </div>
-
-        <!-- Navigation Col 1: Play & Match -->
-        <div class="wf-footer-col">
-          <h4>Play</h4>
-          <ul class="wf-footer-links">
-            <li><a href="#play" data-action="go-page" data-target="play">Court Availability</a></li>
-            <li><a href="#play" data-action="go-page" data-target="play">Pricing &amp; Peak Rates</a></li>
-            <li><a href="#find-player" data-action="go-page" data-target="find-player">Find a Player (Solo)</a></li>
-            <li><a href="#find-player" data-action="go-page" data-target="find-player">Match Refund Policy</a></li>
-          </ul>
-        </div>
-
-        <!-- Navigation Col 2: Coaching & Info -->
-        <div class="wf-footer-col">
-          <h4>Learn &amp; Club</h4>
-          <ul class="wf-footer-links">
-            <li><a href="#new-to-padel" data-action="go-page" data-target="new-to-padel">New to Padel Guide</a></li>
-            <li><a href="#classes" data-action="go-page" data-target="classes">Beginner Clinics</a></li>
-            <li><a href="#classes" data-action="go-page" data-target="classes">Private Coaching</a></li>
-            <li><a href="#club" data-action="go-page" data-target="club">Courts &amp; Facilities</a></li>
-            <li><a href="#club" data-action="go-page" data-target="club">Hours &amp; Parking</a></li>
-          </ul>
-        </div>
-
-        <!-- Club Opening & Policy Col -->
-        <div class="wf-footer-col">
-          <h4>Hours &amp; Policies</h4>
-          <p style="font-size: 12px; line-height: 1.6; margin-bottom: 12px;">
-            <strong>Mon – Fri:</strong> 07:00 – 23:00<br>
-            <strong>Sat – Sun:</strong> 07:30 – 22:30
-          </p>
-          <div style="font-size: 11px; color: #64748b; line-height: 1.5; border-top: 1px solid #1e293b; padding-top: 8px;">
-            ✓ Free cancellation up to 12h prior<br>
-            ✓ 100% refund on unmatched solo games
-          </div>
-        </div>
-
+    <div class="wf-container wf-footer-inner">
+      <div style="display: flex; align-items: center; gap: var(--sp-4);">
+        <span style="font-weight: 800; color: #fff;">VEYA PADEL CLUB</span>
+        <span>© 2026 VEYA Sports LLC.</span>
       </div>
 
-      <!-- Footer Bottom Bar -->
-      <div class="wf-footer-bottom">
-        <div>
-          © 2026 The Padel Club. Low-Fidelity Interactive UX Wireframe Deliverable.
-        </div>
-        <div style="display: flex; gap: 16px;">
-          <a href="#sitemap" data-action="open-sitemap" style="color: #94a3b8; text-decoration: underline;">View Sitemap Architecture</a>
-          <span style="color: #475569;">|</span>
-          <span style="color: #94a3b8;">Designed for Local Business / Non-Technical Operations</span>
-        </div>
+      <div style="display: flex; gap: var(--sp-4); font-size: 11px;">
+        <a href="#sec-pricing" style="color: #94a3b8;">Pricing</a>
+        <a href="#sec-first-time" style="color: #94a3b8;">First Time</a>
+        <a href="#sec-faq" style="color: #94a3b8;">FAQ</a>
+        <a href="#" data-trigger="playtomic-modal" style="color: #94a3b8;">Playtomic Club ID #8492</a>
       </div>
     </div>
   </footer>
 
-  <!-- Dynamic Modal Overlay Root -->
-  <div id="modal-root"></div>
+  <!-- ==========================================================================
+       MODAL 1: COACHING & LEVEL ASSESSMENT FORM
+       ========================================================================== -->
+  <div id="coaching-modal" class="wf-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-coaching-title">
+    <div class="wf-modal-dialog">
+      <div class="wf-modal-header">
+        <h3 id="modal-coaching-title">Coaching & Level Assessment</h3>
+        <button class="wf-modal-close" aria-label="Close modal">&times;</button>
+      </div>
 
-  <!-- Complete Standalone JavaScript Bundle (Works with file:/// and http:// with 0 CORS restrictions) -->
-  <script src="js/bundle.js"></script>
+      <div class="wf-modal-body">
+        <div class="wf-ux-note" style="margin-top: 0; margin-bottom: var(--sp-3);">
+          <div class="wf-ux-note-header">
+            <span class="wf-ux-note-badge">UX NOTE</span>
+            <span class="wf-ux-note-title">ASSESSMENT SCREENING</span>
+          </div>
+          <p class="wf-ux-note-body">
+            Automates the level screening process so coaches review background before placing into classes.
+          </p>
+        </div>
 
+        <form id="assessment-form" onsubmit="event.preventDefault(); alert('Assessment application sent! Our coaching coordinator will confirm your session within 24h.'); closeModal(document.getElementById('coaching-modal'));">
+          <div class="wf-form-group">
+            <label class="wf-form-label" for="target-program-input">Program or Coach:</label>
+            <input type="text" id="target-program-input" class="wf-form-input" readonly value="General Assessment">
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3);" class="wf-form-group">
+            <div>
+              <label class="wf-form-label" for="user-name">Full Name:</label>
+              <input type="text" id="user-name" class="wf-form-input" placeholder="Alex Smith" required>
+            </div>
+            <div>
+              <label class="wf-form-label" for="user-phone">WhatsApp / Phone:</label>
+              <input type="tel" id="user-phone" class="wf-form-input" placeholder="+971 50 000 0000" required>
+            </div>
+          </div>
+
+          <div class="wf-form-group">
+            <label class="wf-form-label" for="user-exp">Your Experience Level:</label>
+            <select id="user-exp" class="wf-form-select" required>
+              <option value="">Select your self-assessment level...</option>
+              <option value="complete-beginner">Level 1.0 - Complete Beginner (Never played)</option>
+              <option value="racket-sports">Level 1.5 - Played 1-5 times (Or tennis/squash background)</option>
+              <option value="regular-player">Level 2.0-3.0 - Regular player (Can rally & use walls)</option>
+              <option value="advanced">Level 3.5+ - Advanced / Tournament player</option>
+            </select>
+          </div>
+
+          <div class="wf-form-group">
+            <label class="wf-form-label" for="user-times">Preferred Training Times:</label>
+            <input type="text" id="user-times" class="wf-form-input" placeholder="e.g. Weekdays after 18:00 or Sat mornings">
+          </div>
+
+          <div class="wf-modal-footer" style="padding-left: 0; padding-right: 0; background: none; border-top: none;">
+            <button type="button" class="wf-btn wf-btn-secondary wf-btn-sm" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="wf-btn wf-btn-primary wf-btn-sm">Submit Assessment</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 2: PLAYTOMIC DEEP LINK EXPLAINER
+       ========================================================================== -->
+  <div id="playtomic-modal" class="wf-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-playtomic-title">
+    <div class="wf-modal-dialog">
+      <div class="wf-modal-header">
+        <h3 id="modal-playtomic-title">⚡ Playtomic Live Integration</h3>
+        <button class="wf-modal-close" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="wf-modal-body">
+        <div style="background-color: #f0fdf4; border: 1.5px solid #86efac; border-radius: var(--radius-md); padding: var(--sp-4); margin-bottom: var(--sp-4);">
+          <h4 style="color: #166534; font-size: 14px; font-weight: 800; margin-bottom: 2px;">Direct Deep Link to VEYA Padel Club</h4>
+          <p style="color: #14532d; font-size: 12.5px;">
+            Launches universal app link: <code>https://playtomic.io/clubs/veya-padel-club-id</code>
+          </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: var(--sp-2); font-size: 13px;">
+          <div>✓ Live calendar updates every 30 seconds.</div>
+          <div>✓ Automatic 4-way split payment among invited friends.</div>
+          <div>✓ Instant QR code entrance pass upon payment confirmation.</div>
+        </div>
+      </div>
+
+      <div class="wf-modal-footer">
+        <button class="wf-btn wf-btn-secondary wf-btn-sm" data-dismiss="modal">Close</button>
+        <a href="https://playtomic.io" target="_blank" class="wf-btn wf-btn-primary wf-btn-sm">
+          Continue to Playtomic ↗
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive JavaScript Controller -->
+  <script src="js/single-page-wireframe.js"></script>
 </body>
 </html>
