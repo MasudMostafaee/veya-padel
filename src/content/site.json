@@ -1,0 +1,28 @@
+{
+  "title": "Veya Padel Club, London | Book a court, learn as you play",
+  "description": "Indoor and outdoor padel courts in London, coaching for every level, and a club where beginners are genuinely welcome.",
+  "name": "Veya Padel Club",
+  "nav": [
+    { "label": "Club", "href": "#club" },
+    { "label": "Play", "href": "#play" },
+    { "label": "New to Padel", "href": "#new" },
+    { "label": "Information", "href": "#info" }
+  ],
+  "bookLabel": "Book a Court",
+  "bookNote": "Veya is a concept project, so booking isn't live. On a real club site, this button would take you to Playtomic to choose a time and pay.",
+  "hero": {
+    "eyebrow": "Padel club · London",
+    "lines": ["Book a court.", "Bring a friend.", "Learn as you play."],
+    "lead": "Indoor and outdoor courts, coaching for every level, and a club where people who have never held a padel racket are genuinely welcome.",
+    "secondary": "New to Padel?",
+    "handoff": "Booking continues on Playtomic →",
+    "courtTag": "Court 01 — 20 × 10 m",
+    "netTag": "Net",
+    "alt": "Padel player holding a racket and a ball, ready to serve"
+  },
+  "final": {
+    "title": "Ready to play?",
+    "text": "Book your first game — courts, rackets and friendly people included.",
+    "handoff": "You'll be taken to Playtomic to choose a time and pay →"
+  }
+}

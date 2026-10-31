@@ -1,0 +1,13 @@
+{
+  "title": "Never played before? Start here.",
+  "sub": "Padel is easy to pick up — most people are rallying within their first session. You don't need experience, and you don't need your own equipment.",
+  "cta": "Book a beginner session",
+  "items": [
+    { "q": "What is Padel?", "a": "A doubles racket sport played on a court about a third the size of a tennis court, surrounded by glass walls. The ball can bounce off the walls, which keeps rallies going and makes it easy to learn." },
+    { "q": "Do I need any experience?", "a": "None at all. Our beginner sessions start from how to hold the racket, and a coach is on court with you the whole time." },
+    { "q": "What do I need to bring?", "a": "Just comfortable sportswear, trainers and a bottle of water. We have everything else here." },
+    { "q": "Can I rent a racket?", "a": "Yes. Rackets are £4 per session from reception, and they are free in beginner sessions. Balls are always included." },
+    { "q": "What should I wear?", "a": "Anything you can move in. Flat-soled trainers work best on the court; please avoid running shoes with a heavy tread." },
+    { "q": "How does booking work?", "a": "Choose a time on Playtomic and pay online. You will get a confirmation straight away, and you can cancel for free up to 24 hours before." }
+  ]
+}

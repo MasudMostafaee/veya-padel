@@ -1,0 +1,12 @@
+{
+  "title": "Pricing",
+  "sub": "Every price is right here, before you book.",
+  "plans": [
+    { "name": "Court Rental", "price": "£36", "unit": "per court, per hour", "cta": "Book a Court", "featured": true,
+      "rows": [["Off-peak", "£28"], ["Peak", "£44"], ["Racket hire", "£4"]] },
+    { "name": "Coaching", "price": "£55", "unit": "per private session", "cta": "Book a Session", "featured": false,
+      "rows": [["Group coaching", "£20"], ["Block of 5", "£250"]] },
+    { "name": "Classes", "price": "£16", "unit": "per class", "cta": "Book a Class", "featured": false,
+      "rows": [["Beginner course", "£90"], ["Intermediate", "£110"]] }
+  ]
+}
