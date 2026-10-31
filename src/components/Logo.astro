@@ -1,0 +1,15 @@
+---
+const { class: className } = Astro.props;
+---
+<svg class={className} viewBox="0 0 210 40" aria-hidden="true">
+  <path class="mark" d="M0 0H14.4L30.4 40H16Z" />
+  <path class="mark" d="M33.6 0H48L36.5 28.8H31.5L26.8 17Z" />
+  <g fill="currentColor" transform="translate(58 0)">
+    <path d="M0 0H38V9H11V15.5H35V24.5H11V31H38V40H0Z" />
+    <path d="M46 0H58.5L70 15L81.5 0H94L75 23.5V40H65V23.5Z" />
+    <path fill-rule="evenodd" d="M120.5 0H131.5L152 40H140.5L137 32.5H115L111.5 40H100ZM119 24.5H133L126 10Z" />
+  </g>
+</svg>
+<style>
+  .mark { fill: var(--ball); }
+</style>

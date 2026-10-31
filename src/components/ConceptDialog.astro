@@ -1,0 +1,16 @@
+<dialog class="concept" data-concept-dialog aria-labelledby="concept-title">
+  <p class="label" id="concept-title">Concept project</p>
+  <p class="text" data-concept-text></p>
+  <form method="dialog"><button class="btn primary">Got it</button></form>
+</dialog>
+
+<style>
+  .concept {
+    width: min(440px, calc(100vw - 32px)); padding: 28px; border: 1px solid var(--line-dark);
+    background: var(--ink-2); color: var(--paper);
+    --line: var(--line-dark); --focus: var(--ball);
+  }
+  .concept::backdrop { background: rgba(11, 13, 11, 0.7); }
+  .label { color: var(--ball); }
+  .text { margin: 14px 0 24px; }
+</style>
