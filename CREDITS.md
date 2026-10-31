@@ -1,8 +1,8 @@
 # Photo credits
 
-All photos are free stock images, converted to black and white.
+All photos are free stock images. Most are converted to black and white; the club gallery is greyed with CSS.
 
-- `player.webp`: Anhelina Vasylyk on Pexels, cut out. https://www.pexels.com/photo/female-padel-player-in-indoor-sports-arena-35248496/
+- `hero-bg.webp`, `hero-player.webp`: Iván Hernández-Cuevas on Pexels, cut out and regraded. https://www.pexels.com/photo/padel-match-action-in-merida-mexico-37978999/
 - `ways-crew.webp`: erjola qerimi on Unsplash. https://unsplash.com/photos/four-women-posing-on-a-blue-padel-court-with-racquets-JP1ZS_pf1ls
 - `ways-solo.webp`: erjola qerimi on Unsplash. https://unsplash.com/photos/man-playing-padel-tennis-indoors-hitting-ball-OjbTWGZGX28
 - `first-time.webp`: Anhelina Vasylyk on Pexels. https://www.pexels.com/photo/young-woman-playing-padel-tennis-indoors-35248245/
@@ -15,3 +15,5 @@ All photos are free stock images, converted to black and white.
 - `club-cafe.webp`: lumverte on Pexels. https://www.pexels.com/photo/modern-coffee-shop-espresso-machine-setup-32159170/
 - `club-shop.webp`: Sergio Contreras on Unsplash. https://unsplash.com/photos/padel-rackets-and-balls-on-court-wLAtpQ53Pfw
 - `faq-help.webp`: Anhelina Vasylyk on Pexels. https://www.pexels.com/photo/young-woman-playing-padel-tennis-indoors-35248259/
+- `club-community.webp`: Anhelina Vasylyk on Pexels. https://www.pexels.com/photo/group-playing-padel-tennis-indoors-35248404/
+- `club-turf.webp`: Ercan Evcimen on Pexels. https://www.pexels.com/photo/indoor-padel-court-with-blue-surface-32474981/

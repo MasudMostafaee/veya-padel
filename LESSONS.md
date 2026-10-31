@@ -35,3 +35,9 @@ Stack: Astro 7 (static), GSAP, Lenis, JSON content files
 - Cause: a bare `span` rule meant for the radio labels also matched the price span in the same component
 - Fix: narrowed the selector to `label span`
 - Next time: scoping stops leaks between components, not inside one; avoid bare element selectors in a busy component
+### Reference preload outlived the image
+- Area: Astro layout
+- Symptom: a 404 in the console after swapping the hero image, with the page looking fine
+- Cause: `Base.astro` still preloaded the old `player.webp`
+- Fix: pointed the preload at the new layers and added a test that the old path is gone
+- Next time: when replacing a key image, search for its name across the layout as well as the component

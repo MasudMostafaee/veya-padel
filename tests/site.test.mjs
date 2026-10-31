@@ -57,7 +57,7 @@ test('prices match the wireframe matrix', () => {
 });
 
 test('content is not hidden by static CSS', () => {
-  for (const sel of ['.copy', '.play', '.levels', '.coaches', '.plans', '.places']) {
+  for (const sel of ['.copy', '.stats', '.play', '.levels', '.coaches', '.plans', '.gallery']) {
     const rule = new RegExp(`${sel.replace('.', '\\.')}[^{]*\\{[^}]*(opacity:0|visibility:hidden)`);
     assert.ok(!rule.test(css), `${sel} hidden in CSS`);
   }
@@ -65,4 +65,20 @@ test('content is not hidden by static CSS', () => {
 
 test('page states it is a concept project', () => {
   assert.ok(html.includes('Concept project'));
+});
+
+test('club gallery has one caption per photo and slider controls', () => {
+  assert.equal(count(/<figcaption/g), 5);
+  assert.ok(html.includes('data-slider-prev') && html.includes('data-slider-next'));
+});
+
+test('coaching tracks use the shared cards', () => {
+  assert.equal(count(/class="play/g), 4);
+  assert.ok(!html.includes('data-service-row'));
+});
+
+test('hero keeps only the slogan, with no paragraph under it', () => {
+  assert.ok(!html.includes('4 panoramic indoor courts, certified coaching'));
+  assert.ok(html.includes('hero-player.webp'));
+  assert.ok(!html.includes('images/player.webp'));
 });
