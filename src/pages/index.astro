@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import ConceptDialog from '../components/ConceptDialog.astro';
+import Hero from '../components/Hero.astro';
+import Why from '../components/Why.astro';
+import Services from '../components/Services.astro';
+import NewToPadel from '../components/NewToPadel.astro';
+import Pricing from '../components/Pricing.astro';
+import Reviews from '../components/Reviews.astro';
+import Info from '../components/Info.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Footer from '../components/Footer.astro';
+import site from '../content/site.json';
+---
+<Base title={site.title} description={site.description}>
+  <Header />
+  <main>
+    <Hero />
+    <Why />
+    <Services />
+    <NewToPadel />
+    <Pricing />
+    <Reviews />
+    <Info />
+    <FinalCta />
+  </main>
+  <Footer />
+  <ConceptDialog />
+</Base>
+
+<script>
+  import { initHeader } from '../scripts/header.js';
+  import { initUi } from '../scripts/ui.js';
+  import { initMotion } from '../scripts/motion.js';
+
+  initUi();
+  initHeader();
+  initMotion();
+</script>
