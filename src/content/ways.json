@@ -15,7 +15,8 @@
       "cta": "Book a Court",
       "primary": true,
       "image": "ways-crew.webp",
-      "alt": "Four friends with rackets on a padel court"
+      "alt": "Four friends with rackets on a padel court",
+      "focus": "50% 62%"
     },
     {
       "label": "Community matchmaking",
@@ -29,7 +30,8 @@
       "cta": "Find a Match",
       "primary": false,
       "image": "ways-solo.webp",
-      "alt": "Solo player jumping to serve on an indoor court"
+      "alt": "Solo player jumping to serve on an indoor court",
+      "focus": "50% 38%"
     }
   ]
 }

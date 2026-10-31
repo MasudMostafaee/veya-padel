@@ -1,39 +1,34 @@
 ---
+import PlayCard from './PlayCard.astro';
 import ways from '../content/ways.json';
 import site from '../content/site.json';
-const base = import.meta.env.BASE_URL;
 ---
-<section class="band on-paper" id="ways" tabindex="-1">
-  <p class="label" data-reveal>{ways.label}</p>
-  <h2 data-reveal>{ways.title}</h2>
-  <p class="sub" data-reveal>{ways.sub}</p>
+<section class="band on-paper ways" id="ways" tabindex="-1">
+  <header class="head">
+    <div>
+      <p class="label" data-reveal>{ways.label}</p>
+      <h2 data-reveal>{ways.title}</h2>
+    </div>
+    <p class="sub" data-reveal>{ways.sub}</p>
+  </header>
   <div class="cards">
     {ways.cards.map((card) => (
-      <article class="play" data-reveal>
-        <div class="frame" data-zoom>
-          <img src={`${base}images/${card.image}`} alt={card.alt} width="900" height="1350" loading="lazy" decoding="async" />
-        </div>
-        <p class="label">{card.label}</p>
-        <h3>{card.title}</h3>
-        <p class="text">{card.text}</p>
-        <ul class="meta">{card.meta.map((item) => <li>{item}</li>)}</ul>
+      <PlayCard card={card}>
         <button class:list={['btn', { primary: card.primary }]} type="button" data-concept={site.bookNote}>{card.cta}</button>
-      </article>
+      </PlayCard>
     ))}
   </div>
 </section>
 
 <style>
-  h2 { margin-top: 16px; }
-  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
-  .play { display: flex; flex-direction: column; align-items: flex-start; }
-  .frame { width: 100%; aspect-ratio: 4 / 3; overflow: hidden; margin-bottom: 24px; }
-  .frame img { width: 100%; height: 100%; object-fit: cover; }
-  h3 { margin-top: 12px; font-size: clamp(40px, 4.6vw, 72px); line-height: 1; }
-  .text { margin-top: 12px; color: var(--sub); }
-  .play .btn { margin-top: auto; align-self: stretch; }
-  .meta { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 16px 0 24px; font: 400 12px var(--mono); color: var(--sub); }
+  .ways { padding-block: clamp(56px, 8vh, 96px); }
+  .head { display: flex; align-items: flex-end; justify-content: space-between; gap: 48px; }
+  h2 { margin-top: 12px; font-size: clamp(44px, 5.4vw, 88px); }
+  .sub { max-width: 34ch; margin: 0 0 6px; font-size: 16px; line-height: 1.4; text-align: right; }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; }
   @media (max-width: 760px) {
-    .cards { grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
+    .head { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .sub { text-align: left; }
+    .cards { grid-template-columns: 1fr; gap: 40px; margin-top: 28px; }
   }
 </style>
