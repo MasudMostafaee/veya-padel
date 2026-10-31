@@ -1,0 +1,25 @@
+{
+  "label": "05 / The club",
+  "title": "A place to play and connect.",
+  "sub": "Sport, coffee, and community under one roof.",
+  "places": [
+    {
+      "title": "4 Panoramic Courts",
+      "text": "Italian blue turf, 12mm glass walls, and shadowless LED floodlights.",
+      "image": "club-courts.webp",
+      "alt": "Rows of indoor padel courts with glass walls"
+    },
+    {
+      "title": "Clubhouse Cafe",
+      "text": "Specialty espresso, protein smoothies, and viewing terrace.",
+      "image": "club-cafe.webp",
+      "alt": "Espresso machine on the cafe counter"
+    },
+    {
+      "title": "Pro Shop & Demo Center",
+      "text": "Test 20+ demo rackets before buying. Apparel, grips, and gear.",
+      "image": "club-shop.webp",
+      "alt": "Padel rackets and balls laid out on a court"
+    }
+  ]
+}

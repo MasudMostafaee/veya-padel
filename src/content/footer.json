@@ -1,7 +1,20 @@
 {
-  "tagline": "A padel club for people who already play — and for people who are about to start.",
-  "social": ["Instagram", "Facebook"],
-  "legal": ["Privacy Policy", "Terms & Conditions"],
-  "note": "Veya is a concept project, so this page doesn't exist yet.",
+  "copyright": "© 2026 VEYA Sports LLC.",
+  "links": [
+    {
+      "label": "Pricing",
+      "href": "#pricing"
+    },
+    {
+      "label": "First Time",
+      "href": "#first-time"
+    },
+    {
+      "label": "FAQ",
+      "href": "#faq"
+    }
+  ],
+  "club": "Playtomic Club ID #8492",
+  "clubNote": "Veya is a concept project, so it has no Playtomic listing.",
   "concept": "Concept project — not a real club"
 }

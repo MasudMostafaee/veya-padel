@@ -1,0 +1,26 @@
+{
+  "label": "02 / First time playing?",
+  "title": "Everybody starts somewhere.",
+  "sub": "Padel is easy to pick up from day one. Here is what you need to know:",
+  "image": "first-time.webp",
+  "alt": "Smiling player tossing a ball on her first day on court",
+  "tabs": [
+    {
+      "tab": "01 / Rackets & Shoes",
+      "title": "Zero gear required",
+      "text": "Top-tier rental rackets and match balls are waiting at reception. Just show up in clean, flat athletic sneakers."
+    },
+    {
+      "tab": "02 / 60-Sec Rules",
+      "title": "Simple, fast rules",
+      "text": "Underhand serve below the waist. Glass walls keep the ball in play. Standard tennis scoring (15-30-40). Long rallies in 10 minutes."
+    },
+    {
+      "tab": "03 / Learn & Play",
+      "title": "Get assessed & start right",
+      "text": "Join group coaching or request a private coach. We assess your background to place you with the right peer group."
+    }
+  ],
+  "primary": "Book Coaching",
+  "secondary": "Meet Our Coaches"
+}

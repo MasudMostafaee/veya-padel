@@ -1,0 +1,35 @@
+{
+  "label": "01 / Ways to play",
+  "title": "Your game. Your way.",
+  "sub": "Book a court with friends or step on court solo to meet new players.",
+  "cards": [
+    {
+      "label": "Private court reservation",
+      "title": "Bring your crew",
+      "text": "Got your players? Choose a time and book a court for your group.",
+      "meta": [
+        "2 or 4 Players",
+        "60 / 90 Min",
+        "Pay in Full or Split"
+      ],
+      "cta": "Book a Court",
+      "primary": true,
+      "image": "ways-crew.webp",
+      "alt": "Four friends with rackets on a padel court"
+    },
+    {
+      "label": "Community matchmaking",
+      "title": "No partner? No problem.",
+      "text": "Come solo. Join an open match or start one and meet new players.",
+      "meta": [
+        "Solo or Duo Entry",
+        "Rated 1.0–5.0",
+        "Open Community Games"
+      ],
+      "cta": "Find a Match",
+      "primary": false,
+      "image": "ways-solo.webp",
+      "alt": "Solo player jumping to serve on an indoor court"
+    }
+  ]
+}

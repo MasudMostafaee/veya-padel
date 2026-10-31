@@ -1,9 +1,0 @@
-{
-  "title": "What you can do here",
-  "items": [
-    { "title": "Court Rental", "text": "Book by the hour, indoor or outdoor. Rackets and balls available on site.", "cta": "Book a Court", "image": "service-court.webp", "alt": "Padel racket and ball on a court, beside the net" },
-    { "title": "Coaching", "text": "One-to-one and small-group sessions with qualified padel coaches.", "cta": "Book a Session", "image": "service-coaching.webp", "alt": "Close view of a player with a padel racket and ball" },
-    { "title": "Classes", "text": "Beginner and intermediate group classes, run weekly on Monday to Thursday evenings.", "cta": "Book a Class", "image": "service-classes.webp", "alt": "Four players with rackets on an indoor padel court" },
-    { "title": "Tournaments & Events", "text": "Friday club nights, monthly ladders and open tournaments.", "cta": "See what's on", "image": "service-events.webp", "alt": "Racket meeting the ball during a padel match" }
-  ]
-}

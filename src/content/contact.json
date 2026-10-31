@@ -1,0 +1,32 @@
+{
+  "label": "07 / Location & hours",
+  "title": "See you on court.",
+  "groups": [
+    {
+      "label": "Opening Hours",
+      "lines": [
+        "Mon – Fri: 06:00 – 24:00",
+        "Sat – Sun: 07:00 – 24:00"
+      ]
+    },
+    {
+      "label": "Location & Parking",
+      "lines": [
+        "14 Padel Boulevard, Sports City District",
+        "Free on-site parking for 60+ cars directly at reception."
+      ]
+    },
+    {
+      "label": "Contact",
+      "lines": [
+        "+971 4 000 0000",
+        "info@veyapadel.example"
+      ]
+    }
+  ],
+  "maps": "Open in Google Maps",
+  "mapsNote": "Veya is a concept project, so this address isn't a real place.",
+  "whatsapp": "WhatsApp Concierge",
+  "whatsappNote": "Veya is a concept project, so there's no concierge on WhatsApp yet.",
+  "mapTag": "Parking entrance"
+}

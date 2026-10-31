@@ -1,28 +1,68 @@
 {
-  "title": "Veya Padel Club, London | Book a court, learn as you play",
-  "description": "Indoor and outdoor padel courts in London, coaching for every level, and a club where beginners are genuinely welcome.",
+  "title": "Veya Padel Club | Good games. Great people.",
+  "description": "Four panoramic indoor padel courts, certified coaching and active community matchmaking. No membership needed.",
   "name": "Veya Padel Club",
   "nav": [
-    { "label": "Club", "href": "#club" },
-    { "label": "Play", "href": "#play" },
-    { "label": "New to Padel", "href": "#new" },
-    { "label": "Information", "href": "#info" }
+    {
+      "label": "Play",
+      "href": "#ways"
+    },
+    {
+      "label": "First Time",
+      "href": "#first-time"
+    },
+    {
+      "label": "Coaching",
+      "href": "#coaching"
+    },
+    {
+      "label": "Pricing",
+      "href": "#pricing"
+    },
+    {
+      "label": "The Club",
+      "href": "#club"
+    },
+    {
+      "label": "Contact",
+      "href": "#contact"
+    }
   ],
   "bookLabel": "Book a Court",
-  "bookNote": "Veya is a concept project, so booking isn't live. On a real club site, this button would take you to Playtomic to choose a time and pay.",
+  "bookNote": "Veya is a concept project, so booking isn't live. On a real club site, this would open the club's schedule on Playtomic.",
   "hero": {
-    "eyebrow": "Padel club · London",
-    "lines": ["Book a court.", "Bring a friend.", "Learn as you play."],
-    "lead": "Indoor and outdoor courts, coaching for every level, and a club where people who have never held a padel racket are genuinely welcome.",
-    "secondary": "New to Padel?",
-    "handoff": "Booking continues on Playtomic →",
-    "courtTag": "Court 01 — 20 × 10 m",
+    "eyebrow": "Padel club & community",
+    "lines": [
+      "Good games.",
+      "Great people."
+    ],
+    "lead": "4 panoramic indoor courts, certified coaching, and active community matchmaking. No membership needed.",
+    "secondary": "Find a Match",
     "netTag": "Net",
-    "alt": "Padel player holding a racket and a ball, ready to serve"
+    "alt": "Padel player holding a racket and a ball, ready to serve",
+    "facts": [
+      {
+        "label": "Courts",
+        "value": "4 Panoramic Glass Courts"
+      },
+      {
+        "label": "Climate",
+        "value": "Indoor AC (21°C)"
+      },
+      {
+        "label": "Booking",
+        "value": "Powered by Playtomic"
+      },
+      {
+        "label": "Access",
+        "value": "Open to All • No Membership"
+      }
+    ]
   },
   "final": {
-    "title": "Ready to play?",
-    "text": "Book your first game — courts, rackets and friendly people included.",
-    "handoff": "You'll be taken to Playtomic to choose a time and pay →"
+    "eyebrow": "Ready to play?",
+    "title": "One more game?",
+    "text": "Live availability and 4-way split bookings take 2 minutes on Playtomic.",
+    "cta": "Book Court on Playtomic"
   }
 }

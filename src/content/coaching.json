@@ -1,0 +1,93 @@
+{
+  "label": "03 / Coaching & academy",
+  "title": "Find your next level.",
+  "sub": "Certified coaches to sharpen your technique, wall rebounds, and match tactics.",
+  "alertTitle": "Level Check Required:",
+  "alertText": "All new students complete a quick screening before group placement to guarantee balanced play.",
+  "tracks": [
+    {
+      "label": "Group training",
+      "title": "Group Coaching",
+      "text": "60-minute tactical drills and match situations. Strict 1:4 coach ratio.",
+      "meta": [
+        "60 Min",
+        "Max 4 Players",
+        "Levels 1.0–4.5+"
+      ],
+      "cta": "View Group Coaching ↓",
+      "href": "#group-coaching",
+      "image": "track-group.webp",
+      "alt": "Group of players on an indoor padel court"
+    },
+    {
+      "label": "Individual & duo",
+      "title": "Private Coaching",
+      "text": "Customized technical progression with slow-motion video analysis.",
+      "meta": [
+        "60 / 90 Min",
+        "1-on-1 or Duo",
+        "Video Review"
+      ],
+      "cta": "Meet Coaches Below ↓",
+      "href": "#coaches",
+      "image": "track-private.webp",
+      "alt": "Close view of a padel racket and ball during a session"
+    }
+  ],
+  "levelsTitle": "Group Coaching by Level",
+  "levelsSub": "Select a group coaching session below to submit your screening application.",
+  "levels": [
+    {
+      "level": "Level 1.0–1.5",
+      "title": "Fundamentals",
+      "text": "Grip, continental swing, underhand serve, and basic glass positioning.",
+      "schedule": "Sat & Tue 18:00",
+      "price": "$25 / session",
+      "program": "Fundamentals Group Coaching (Level 1.0-1.5)"
+    },
+    {
+      "level": "Level 2.0–3.0",
+      "title": "Glass Play & Net",
+      "text": "Double-glass defense, net transitions, and defensive lob accuracy.",
+      "schedule": "Sun & Wed 19:30",
+      "price": "$30 / session",
+      "program": "Glass Play Group Coaching (Level 2.0-3.0)"
+    },
+    {
+      "level": "Level 3.5+",
+      "title": "Bandeja & Strategy",
+      "text": "Attacking overheads (Bandeja / Vibora) and match pressure tactics.",
+      "schedule": "Mon & Thu 20:00",
+      "price": "$35 / session",
+      "program": "Advanced Group Coaching (Level 3.5+)"
+    }
+  ],
+  "coachesTitle": "Meet Our Certified Coaches",
+  "coachesSub": "Request an assessment with your preferred coach.",
+  "coaches": [
+    {
+      "name": "Carlos Mendez",
+      "role": "Head Coach • Spain",
+      "bio": "12+ years experience. Spanish Padel Federation Level 3. Advanced tactical setups and tournament prep.",
+      "creds": "FEP Level 3 • Ex-WPT Coach",
+      "image": "coach-carlos.webp",
+      "program": "Private Coaching with Carlos"
+    },
+    {
+      "name": "Elena Rostova",
+      "role": "Senior Coach • Glass Play",
+      "bio": "Patient, structured methodology for beginners and intermediate players. Corner defense specialist.",
+      "creds": "PTR Certified • Ex-Pro Tennis",
+      "image": "coach-elena.webp",
+      "program": "Private Coaching with Elena"
+    },
+    {
+      "name": "Tareq Al-Mansoor",
+      "role": "Performance Coach",
+      "bio": "Head of Junior Academy and adult athletic conditioning. Biomechanics and high-speed match drills.",
+      "creds": "National Coach • CSCS Specialist",
+      "image": "coach-tareq.webp",
+      "program": "Private Coaching with Tareq"
+    }
+  ]
+}

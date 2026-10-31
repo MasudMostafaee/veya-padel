@@ -1,13 +1,32 @@
 {
-  "title": "Never played before? Start here.",
-  "sub": "Padel is easy to pick up — most people are rallying within their first session. You don't need experience, and you don't need your own equipment.",
-  "cta": "Book a beginner session",
+  "label": "06 / FAQ",
+  "title": "Questions? We got you.",
   "items": [
-    { "q": "What is Padel?", "a": "A doubles racket sport played on a court about a third the size of a tennis court, surrounded by glass walls. The ball can bounce off the walls, which keeps rallies going and makes it easy to learn." },
-    { "q": "Do I need any experience?", "a": "None at all. Our beginner sessions start from how to hold the racket, and a coach is on court with you the whole time." },
-    { "q": "What do I need to bring?", "a": "Just comfortable sportswear, trainers and a bottle of water. We have everything else here." },
-    { "q": "Can I rent a racket?", "a": "Yes. Rackets are £4 per session from reception, and they are free in beginner sessions. Balls are always included." },
-    { "q": "What should I wear?", "a": "Anything you can move in. Flat-soled trainers work best on the court; please avoid running shoes with a heavy tread." },
-    { "q": "How does booking work?", "a": "Choose a time on Playtomic and pay online. You will get a confirmation straight away, and you can cancel for free up to 24 hours before." }
-  ]
+    {
+      "q": "Do I need a membership to play?",
+      "a": "No. VEYA is 100% pay-and-play. Book courts or join matches on Playtomic with no subscription fees."
+    },
+    {
+      "q": "Can we play with 2 players or must it be 4?",
+      "a": "Both! Padel is standard 4 players (doubles), but 2 players (singles / cross-court drills) is very popular. Same court booking applies."
+    },
+    {
+      "q": "How does the coaching assessment work?",
+      "a": "Submit a 2-minute screening form above. Our head coach reviews your sporting background and confirms your class tier within 24 hours."
+    },
+    {
+      "q": "How does Playtomic split payment work?",
+      "a": "The organizer reserves the court. Each friend is invited via the app and pays their share directly before the match."
+    },
+    {
+      "q": "What shoes should I wear?",
+      "a": "Flat-soled tennis, padel, or gym sneakers with non-marking rubber soles. Running shoes with thick heels are discouraged."
+    }
+  ],
+  "image": "faq-help.webp",
+  "alt": "Smiling club player with a padel racket",
+  "helpTitle": "Still have questions?",
+  "helpText": "Our team is on court daily from 06:00 to 24:00. Reach out on WhatsApp for fast answers.",
+  "helpCta": "Chat on WhatsApp",
+  "helpNote": "Veya is a concept project, so there's no team on WhatsApp yet."
 }

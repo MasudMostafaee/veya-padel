@@ -1,12 +1,112 @@
 {
-  "title": "Pricing",
-  "sub": "Every price is right here, before you book.",
+  "label": "04 / Pricing & essentials",
+  "title": "Simple to plan. Easy to play.",
+  "sub": "Transparent court rates. Book on Playtomic and split payments automatically.",
+  "durations": [
+    {
+      "value": 90,
+      "label": "90 Min (Recommended)"
+    },
+    {
+      "value": 60,
+      "label": "60 Min (Fast Match)"
+    }
+  ],
+  "modes": [
+    {
+      "value": "player",
+      "label": "Per Player (÷ 4)"
+    },
+    {
+      "value": "court",
+      "label": "Total Court Price"
+    }
+  ],
+  "prices": {
+    "90": {
+      "offpeak": {
+        "court": 64,
+        "player": 16
+      },
+      "peak": {
+        "court": 96,
+        "player": 24
+      }
+    },
+    "60": {
+      "offpeak": {
+        "court": 44,
+        "player": 11
+      },
+      "peak": {
+        "court": 68,
+        "player": 17
+      }
+    }
+  },
   "plans": [
-    { "name": "Court Rental", "price": "£36", "unit": "per court, per hour", "cta": "Book a Court", "featured": true,
-      "rows": [["Off-peak", "£28"], ["Peak", "£44"], ["Racket hire", "£4"]] },
-    { "name": "Coaching", "price": "£55", "unit": "per private session", "cta": "Book a Session", "featured": false,
-      "rows": [["Group coaching", "£20"], ["Block of 5", "£250"]] },
-    { "name": "Classes", "price": "£16", "unit": "per class", "cta": "Book a Class", "featured": false,
-      "rows": [["Beginner course", "£90"], ["Intermediate", "£110"]] }
+    {
+      "key": "offpeak",
+      "name": "Off-Peak Court",
+      "hours": "Mon – Fri | 06:00 – 16:00",
+      "features": [
+        "Full court for 2 or 4 players",
+        "Great for flexible remote hours & beginners",
+        "Free showers, lockers, towels & parking"
+      ],
+      "cta": "Book Off-Peak on Playtomic",
+      "featured": false
+    },
+    {
+      "key": "peak",
+      "name": "Peak Court",
+      "hours": "Weekdays 16:00–24:00 & All Weekends",
+      "features": [
+        "Full court for 2 or 4 players",
+        "Prime floodlit evening atmosphere",
+        "Automated split payment in Playtomic"
+      ],
+      "cta": "Book Peak on Playtomic",
+      "featured": true,
+      "badge": "Popular"
+    }
+  ],
+  "noticeTitle": "Automatic Split Pay:",
+  "noticeText": "Reserve the court in Playtomic; your teammates pay their share ($16 or $24) directly in the app.",
+  "lists": [
+    {
+      "title": "Equipment Rental",
+      "rows": [
+        [
+          "Premium Racket Rental (Bullpadel / Nox)",
+          "$5 / match"
+        ],
+        [
+          "Can of 3 Pro Padel Balls (To keep)",
+          "$8 / can"
+        ],
+        [
+          "Overgrip Replacement",
+          "$4"
+        ]
+      ]
+    },
+    {
+      "title": "Included 100% Free",
+      "rows": [
+        [
+          "Hot showers & fresh towel service",
+          "Free"
+        ],
+        [
+          "Keycode security lockers",
+          "Free"
+        ],
+        [
+          "Dedicated on-site shaded parking",
+          "Free"
+        ]
+      ]
+    }
   ]
 }
