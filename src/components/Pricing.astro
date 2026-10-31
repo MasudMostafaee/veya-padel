@@ -1,40 +1,96 @@
 ---
 import pricing from '../content/pricing.json';
+import site from '../content/site.json';
+const first = pricing.prices['90'];
 ---
-<section class="band on-paper pricing" id="pricing" tabindex="-1">
+<section class="band on-paper" id="pricing" tabindex="-1" data-pricing data-prices={JSON.stringify(pricing.prices)}>
+  <p class="label" data-reveal>{pricing.label}</p>
   <h2 data-reveal>{pricing.title}</h2>
   <p class="sub" data-reveal>{pricing.sub}</p>
-  <div class="prices" data-reveal-group>
+
+  <div class="controls" data-reveal>
+    <fieldset>
+      <legend class="visually-hidden">Session length</legend>
+      {pricing.durations.map((d, i) => (
+        <label><input type="radio" name="duration" value={d.value} checked={i === 0} /><span>{d.label}</span></label>
+      ))}
+    </fieldset>
+    <fieldset>
+      <legend class="visually-hidden">Show price</legend>
+      {pricing.modes.map((m, i) => (
+        <label><input type="radio" name="price-mode" value={m.value} checked={i === 0} /><span>{m.label}</span></label>
+      ))}
+    </fieldset>
+  </div>
+
+  <div class="plans" data-reveal-group>
     {pricing.plans.map((plan) => (
-      <article class:list={['plan', { 'on-ink': plan.featured }]}>
-        <h3>{plan.name}</h3>
-        <p class="amount">{plan.price}</p>
-        <p class="unit">{plan.unit}</p>
+      <article class:list={['plan', { 'on-ink': plan.featured }]} data-plan={plan.key}>
+        <div class="head">
+          <h3>{plan.name}</h3>
+          {plan.badge && <span class="badge">{plan.badge}</span>}
+        </div>
+        <p class="hours">{plan.hours}</p>
+        <p class="amount" aria-live="polite"><span data-amount>${first[plan.key].player}</span> <small data-unit>/ player (4 players)</small></p>
+        <p class="total" data-total>Total Court: ${first[plan.key].court} for 90 min</p>
+        <ul>{plan.features.map((f) => <li>{f}</li>)}</ul>
+        <button class:list={['btn', { primary: plan.featured }]} type="button" data-concept={site.bookNote}>{plan.cta}</button>
+      </article>
+    ))}
+  </div>
+
+  <p class="notice" data-reveal><b>{pricing.noticeTitle}</b> {pricing.noticeText}</p>
+
+  <div class="lists" data-reveal-group>
+    {pricing.lists.map((list) => (
+      <div>
+        <h3>{list.title}</h3>
         <dl>
-          {plan.rows.map(([label, value]) => (
+          {list.rows.map(([label, value]) => (
             <div><dt>{label}</dt><dd>{value}</dd></div>
           ))}
         </dl>
-        <a class:list={['btn', { primary: plan.featured }]} href="#final">{plan.cta}</a>
-      </article>
+      </div>
     ))}
   </div>
 </section>
 
 <style>
-  .prices { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 56px; border: 1px solid var(--line); }
-  .plan { display: flex; flex-direction: column; padding: 28px; border-right: 1px solid var(--line); }
-  .plan:last-child { border-right: 0; }
-  .amount { margin-top: 28px; font: 400 clamp(64px, 7vw, 104px)/1 var(--display); }
-  .unit { margin-top: 6px; color: var(--sub); font-size: 15px; }
-  dl { margin: 28px 0 32px; border-top: 1px solid var(--line); }
-  dl div { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
-  dt { color: var(--sub); }
-  dd { font-weight: 600; }
+  h2 { margin-top: 16px; }
+  .controls { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  fieldset { display: flex; margin: 0; padding: 0; border: 1px solid var(--ink); }
+  label { position: relative; cursor: pointer; }
+  input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  label span { display: flex; align-items: center; min-height: 46px; padding: 0 16px; font: 500 12px var(--mono); transition: background 0.2s, color 0.2s; }
+  input:checked + span { background: var(--ink); color: var(--paper); }
+  input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+  .plans { display: grid; grid-template-columns: 1fr 1fr; margin-top: 32px; border: 1px solid var(--line); }
+  .plan { display: flex; flex-direction: column; padding: 28px; }
+  .head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .badge { padding: 4px 8px; background: var(--ball); color: var(--ink); font: 500 11px var(--mono); text-transform: uppercase; }
+  .hours { margin-top: 6px; color: var(--sub); font-size: 15px; }
+  .amount { margin-top: 24px; font: 400 clamp(64px, 7vw, 104px)/1 var(--display); }
+  .amount [data-amount] { display: inline-block; }
+  .amount small { font: 400 15px var(--body); color: var(--sub); }
+  .total { margin-top: 6px; color: var(--sub); font-size: 15px; }
+  .plan ul { margin: 22px 0 28px; border-top: 1px solid var(--line); }
+  .plan li { padding: 11px 0 11px 24px; border-bottom: 1px solid var(--line); font-size: 16px; position: relative; }
+  .plan li::before { content: '✓'; position: absolute; left: 0; font-weight: 600; }
+  .on-ink li::before { color: var(--ball); }
   .plan .btn { margin-top: auto; }
-  @media (max-width: 860px) {
-    .prices { grid-template-columns: 1fr; }
-    .plan { border-right: 0; border-bottom: 1px solid var(--line); }
-    .plan:last-child { border-bottom: 0; }
+  .notice { max-width: 72ch; margin-top: 24px; color: var(--sub); font-size: 16px; }
+  .notice b { color: var(--ink); font-weight: 600; }
+  .lists { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; margin-top: 48px; }
+  .lists dl { margin: 14px 0 0; border-top: 1px solid var(--line); }
+  .lists dl div { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+  .lists dt { color: var(--sub); }
+  .lists dd { margin: 0; flex: none; font-weight: 600; }
+  @media (max-width: 760px) {
+    fieldset { width: 100%; }
+    fieldset label { flex: 1 1 0; }
+    fieldset span { justify-content: center; min-height: 48px; padding: 6px 8px; text-align: center; }
+    .plans, .lists { grid-template-columns: 1fr; }
+    .plan { padding: 22px; }
   }
 </style>
