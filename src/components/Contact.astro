@@ -1,0 +1,55 @@
+---
+import contact from '../content/contact.json';
+---
+<section class="band on-ball contact" id="contact" tabindex="-1">
+  <div>
+    <p class="label" data-reveal>{contact.label}</p>
+    <h2 data-reveal>{contact.title}</h2>
+    <dl data-reveal-group>
+      {contact.groups.map((group) => (
+        <div>
+          <dt class="label">{group.label}</dt>
+          {group.lines.map((line) => <dd>{line}</dd>)}
+        </div>
+      ))}
+    </dl>
+    <div class="actions" data-reveal>
+      <button class="btn primary" type="button" data-concept={contact.mapsNote}>{contact.maps}</button>
+      <button class="btn" type="button" data-concept={contact.whatsappNote}>{contact.whatsapp}</button>
+    </div>
+  </div>
+  <svg class="map" viewBox="0 0 640 560" role="img" aria-label="Map of Sports City District with the club and its parking entrance marked" data-reveal>
+    <rect width="640" height="560" fill="#0b0d0b" />
+    <g fill="none" stroke="rgba(243,245,238,.2)" stroke-width="2">
+      <path d="M0 120 640 70M0 300 640 250M0 470 640 430M120 0 90 560M300 0 270 560M480 0 470 560" />
+      <path stroke-width="10" d="M0 395C150 370 250 330 340 250S520 90 640 40" />
+    </g>
+    <g fill="none" stroke="rgba(243,245,238,.42)" stroke-width="2">
+      <rect x="318" y="282" width="120" height="84" />
+      <path d="M378 282v84" />
+    </g>
+    <circle cx="378" cy="324" r="9" fill="#d2f11d" />
+    <circle cx="378" cy="324" r="24" fill="none" stroke="#d2f11d" stroke-width="2" />
+    <text x="378" y="394" fill="#f3f5ee" font-family="JetBrains Mono, monospace" font-size="13" text-anchor="middle" letter-spacing="1">VEYA · {contact.mapTag.toUpperCase()}</text>
+  </svg>
+</section>
+
+<style>
+  .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  h2 { margin-top: 16px; }
+  dl { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 24px; margin: 40px 0 32px; }
+  dl div:nth-child(2) { grid-row: span 2; }
+  dt { margin-bottom: 8px; }
+  dd { margin: 0; font-weight: 500; line-height: 1.4; overflow-wrap: anywhere; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .actions .btn:not(.primary):hover { background: var(--ink); color: var(--paper); }
+  .map { width: 100%; height: auto; }
+  @media (max-width: 860px) {
+    .contact { grid-template-columns: 1fr; gap: 40px; }
+  }
+  @media (max-width: 480px) {
+    dl { grid-template-columns: 1fr; }
+    dl div:nth-child(2) { grid-row: auto; }
+    .actions .btn { width: 100%; }
+  }
+</style>
