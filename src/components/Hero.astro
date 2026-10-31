@@ -1,0 +1,60 @@
+---
+import Court from './Court.astro';
+import site from '../content/site.json';
+const { hero } = site;
+const base = import.meta.env.BASE_URL;
+---
+<section class="hero" id="top" tabindex="-1" data-paint-top>
+  <Court />
+  <div class="player-wrap">
+    <img class="player" src={`${base}images/player.webp`} alt={hero.alt} width="791" height="1720" fetchpriority="high" />
+  </div>
+  <span class="tag net-tag" aria-hidden="true">{hero.netTag}</span>
+  <span class="tag court-tag" aria-hidden="true">{hero.courtTag}</span>
+  <div class="copy">
+    <p class="eyebrow">{hero.eyebrow}</p>
+    <h1>
+      {hero.lines.map((line) => <span class="l"><span>{line}</span></span>)}
+    </h1>
+    <p class="lead">{hero.lead}</p>
+    <div class="actions">
+      <a class="btn primary" href="#final">{site.bookLabel}</a>
+      <a class="btn" href="#new">{hero.secondary}</a>
+    </div>
+    <p class="handoff">{hero.handoff}</p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    --line: var(--line-dark); --focus: var(--ball);
+    position: relative; height: 100svh; min-height: 620px; overflow: hidden;
+    background: var(--ink); perspective: 1500px;
+  }
+  .player-wrap { position: absolute; inset: 0; pointer-events: none; z-index: 3; }
+  .player { position: absolute; right: 4vw; bottom: 7vh; height: 84vh; width: auto; max-width: none; }
+  .tag { position: absolute; font: 500 11px/1 var(--mono); letter-spacing: 0.08em; color: var(--mute); text-transform: uppercase; }
+  .court-tag { right: var(--gutter); bottom: 26px; }
+  .net-tag { left: 50%; top: 84px; transform: translateX(-50%); }
+  .copy { position: absolute; left: var(--gutter); bottom: clamp(28px, 6vh, 60px); z-index: 5; pointer-events: none; }
+  .copy a { pointer-events: auto; }
+  .eyebrow { margin-bottom: 18px; font: 500 12px var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ball); }
+  h1 { margin: 0; font: 400 clamp(58px, 9.4vw, 158px)/0.96 var(--display); text-transform: uppercase; letter-spacing: 0.005em; }
+  .l { display: block; clip-path: inset(0 -100vw); padding-top: 0.04em; }
+  .l > span { display: block; white-space: nowrap; }
+  .lead { max-width: 44ch; margin-top: 20px; color: var(--soft); }
+  .actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+
+  @media (min-width: 761px) and (max-width: 1100px) and (orientation: portrait) {
+    .player { top: 96px; bottom: auto; height: 58vh; }
+  }
+  @media (max-width: 760px) {
+    .hero { min-height: 600px; }
+    .net-tag, .court-tag { display: none; }
+    .player { right: 3vw; top: 84px; bottom: auto; height: 44vh; }
+    .copy { left: 16px; right: 16px; bottom: 24px; }
+    h1 { font-size: 11.6vw; }
+    .lead { font-size: 16px; }
+    .actions .btn { flex: 1 1 0; padding: 0 12px; }
+  }
+</style>
