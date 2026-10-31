@@ -20,7 +20,8 @@ const base = import.meta.env.BASE_URL;
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0b0d0b" />
     <link rel="preload" as="font" type="font/woff2" href={antonUrl} crossorigin />
-    <link rel="preload" as="image" href={`${base}images/player.webp`} fetchpriority="high" />
+    <link rel="preload" as="image" href={`${base}images/hero-player.webp`} media="(min-width: 761px)" fetchpriority="high" />
+    <link rel="preload" as="image" href={`${base}images/hero-player-sm.webp`} media="(max-width: 760px)" fetchpriority="high" />
     <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
   </head>
   <body>

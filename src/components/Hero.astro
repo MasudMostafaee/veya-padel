@@ -1,75 +1,109 @@
 ---
-import Court from './Court.astro';
 import site from '../content/site.json';
 const { hero } = site;
 const base = import.meta.env.BASE_URL;
+const src = (name) => `${base}images/${name}.webp`;
 ---
 <section class="hero" id="top" tabindex="-1" data-paint-top>
-  <Court />
-  <div class="player-wrap">
-    <img class="player" src={`${base}images/player.webp`} alt={hero.alt} width="791" height="1720" fetchpriority="high" />
+  <div class="stage-wrap" aria-hidden="true">
+    <div class="stage">
+      <picture>
+        <source media="(max-width: 760px)" srcset={src(`${hero.image.bg}-sm`)} />
+        <img class="hero-bg" src={src(hero.image.bg)} alt="" width="2200" height="1466" fetchpriority="high" />
+      </picture>
+      <canvas data-heat></canvas>
+      <picture>
+        <source media="(max-width: 760px)" srcset={src(`${hero.image.player}-sm`)} />
+        <img class="hero-player" src={src(hero.image.player)} alt="" width="2200" height="1466" fetchpriority="high" />
+      </picture>
+      <i class="ball" data-ball></i>
+      <div class="columns">{[1, 2, 3, 4, 5].map(() => <span></span>)}</div>
+      <div class="shade"></div>
+    </div>
   </div>
-  <span class="tag" aria-hidden="true">{hero.netTag}</span>
+  <p class="visually-hidden">{hero.image.alt}</p>
+
+  <dl class="stats left">
+    {hero.left.map((item) => (
+      <div><dd>{item.value}</dd><dt>{item.label}</dt></div>
+    ))}
+  </dl>
+  <dl class="stats right">
+    {hero.right.map((item) => (
+      <div><dd>{item.title}</dd><dt>{item.text}</dt></div>
+    ))}
+  </dl>
+
   <div class="copy">
     <p class="eyebrow">{hero.eyebrow}</p>
     <h1>
       {hero.lines.map((line) => <span class="l"><span>{line}</span></span>)}
     </h1>
-    <p class="lead">{hero.lead}</p>
-    <div class="actions">
-      <button class="btn primary" type="button" data-concept={site.bookNote}>{site.bookLabel}</button>
-      <a class="btn" href="#ways">{hero.secondary}</a>
-    </div>
   </div>
-  <dl class="facts">
-    {hero.facts.map((fact) => (
-      <div><dt class="label">{fact.label}</dt><dd>{fact.value}</dd></div>
-    ))}
-  </dl>
+  <div class="actions">
+    <button class="btn primary" type="button" data-concept={site.bookNote}>{site.bookLabel}</button>
+    <a class="btn" href="#ways">{hero.secondary}</a>
+  </div>
 </section>
 
 <style>
   .hero {
     --line: var(--line-dark); --focus: var(--ball);
-    position: relative; display: flex; flex-direction: column; justify-content: flex-end;
-    height: 100svh; min-height: 640px; overflow: hidden;
+    position: relative; height: 100svh; min-height: 640px; overflow: hidden;
     background: var(--ink); perspective: 1500px;
   }
-  .player-wrap { position: absolute; inset: 0; pointer-events: none; z-index: 3; }
-  .player { position: absolute; right: 6vw; bottom: 56px; height: 80vh; width: auto; max-width: none; }
-  .tag { position: absolute; left: 50%; top: 84px; transform: translateX(-50%); font: 500 11px/1 var(--mono); letter-spacing: 0.08em; color: var(--mute); text-transform: uppercase; }
-  .copy { position: relative; z-index: 5; padding: 0 var(--gutter) clamp(24px, 4vh, 40px); pointer-events: none; }
-  .copy a, .copy button { pointer-events: auto; }
-  .eyebrow { margin-bottom: 18px; font: 500 12px var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ball); }
+  .stage-wrap, .stage { position: absolute; inset: 0; }
+  .stage { transform-origin: 50% 60%; overflow: hidden; }
+  picture { display: contents; }
+  .stage img, .stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .stage img { object-fit: cover; object-position: 50% 30%; }
+  .hero-player { pointer-events: none; }
+  .ball {
+    position: absolute; left: 0; top: 0; width: 14px; height: 14px; margin: -7px 0 0 -7px;
+    border-radius: 50%; background: var(--ball); box-shadow: 0 0 24px 4px rgba(210, 241, 29, 0.55);
+    visibility: hidden; pointer-events: none;
+  }
+  .columns { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(5, 1fr); pointer-events: none; }
+  .columns span { position: relative; }
+  .columns span::before { content: ''; position: absolute; left: 100%; top: 0; bottom: 0; width: 1px; background: rgba(243, 245, 238, 0.14); }
+  .columns span:last-child::before { display: none; }
+  .shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 13, 11, 0.86), rgba(11, 13, 11, 0) 56%); pointer-events: none; }
+
+  .stats { position: absolute; top: clamp(112px, 17vh, 170px); z-index: 5; display: grid; gap: 22px; margin: 0; pointer-events: none; }
+  .stats dd { margin: 0; }
+  .left { left: var(--gutter); }
+  .left dd { font: 400 34px/1 var(--display); }
+  .left dt { margin-top: 6px; font-size: 14px; opacity: 0.8; }
+  .right { right: var(--gutter); text-align: right; }
+  .right dd { font-size: 15px; font-weight: 600; }
+  .right dt { margin-top: 3px; font-size: 14px; opacity: 0.8; }
+
+  .copy { position: absolute; left: var(--gutter); bottom: clamp(24px, 4.4vh, 44px); z-index: 5; pointer-events: none; }
+  .eyebrow { margin-bottom: 14px; font: 500 12px var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ball); }
   h1 { margin: 0; font: 400 clamp(72px, 11.2vw, 190px)/0.96 var(--display); text-transform: uppercase; letter-spacing: 0.005em; }
   .l { display: block; clip-path: inset(0 -100vw); padding-top: 0.04em; }
   .l > span { display: block; white-space: nowrap; }
-  .lead { max-width: 44ch; margin-top: 20px; color: var(--soft); }
-  .actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
-  .facts {
-    position: relative; z-index: 5; display: grid; grid-template-columns: repeat(4, 1fr); margin: 0;
-    border-top: 1px solid var(--line); background: rgba(11, 13, 11, 0.6); pointer-events: none;
-  }
-  .facts div { padding: 14px var(--gutter); border-right: 1px solid var(--line); }
-  .facts div:last-child { border-right: 0; }
-  .facts dt { margin-bottom: 4px; color: var(--mute); font-size: 11px; }
-  .facts dd { margin: 0; font-size: 15px; font-weight: 500; }
+  .actions { position: absolute; right: var(--gutter); bottom: clamp(30px, 5.4vh, 54px); z-index: 5; display: flex; gap: 12px; }
 
-  @media (min-width: 761px) and (max-width: 1100px) and (orientation: portrait) {
-    .player { top: 96px; bottom: auto; height: 52vh; }
+  @media (max-width: 1100px) {
+    .actions { flex-direction: column; }
   }
   @media (max-width: 760px) {
-    .hero { height: auto; min-height: max(100svh, 800px); }
-    .tag { display: none; }
-    .player { right: 3vw; top: 72px; bottom: auto; height: 250px; }
-    .copy { padding: 0 16px 20px; }
+    .hero { display: flex; flex-direction: column; justify-content: flex-end; min-height: max(100svh, 720px); padding: 0 16px 20px; }
+    .stage img { object-position: 72% 18%; }
+    .shade { background: linear-gradient(to top, rgba(11, 13, 11, 0.94) 34%, rgba(11, 13, 11, 0) 70%); }
+    .columns { grid-template-columns: repeat(3, 1fr); }
+    .columns span:nth-child(n + 4) { display: none; }
+    .columns span:nth-child(3)::before { display: none; }
+    .copy, .stats, .actions { position: relative; inset: auto; }
+    .copy { order: 1; }
     h1 { font-size: 17.4vw; }
-    .lead { font-size: 16px; }
+    .stats { order: 2; grid-template-columns: 1fr 1fr; gap: 14px 16px; margin-top: 14px; }
+    .left dd { font-size: 26px; }
+    .left dt, .right dt { font-size: 13px; }
+    .right { text-align: left; order: 3; margin-top: 12px; }
+    .right dd { font-size: 14px; }
+    .actions { order: 4; flex-direction: row; margin-top: 18px; }
     .actions .btn { flex: 1 1 0; padding: 0 12px; }
-    .facts { grid-template-columns: 1fr 1fr; }
-    .facts div { padding: 10px 16px; }
-    .facts div:nth-child(2) { border-right: 0; }
-    .facts div:nth-child(-n + 2) { border-bottom: 1px solid var(--line); }
-    .facts dd { font-size: 13px; }
   }
 </style>

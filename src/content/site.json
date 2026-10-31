@@ -36,28 +36,32 @@
       "Good games.",
       "Great people."
     ],
-    "lead": "4 panoramic indoor courts, certified coaching, and active community matchmaking. No membership needed.",
     "secondary": "Find a Match",
-    "netTag": "Net",
-    "alt": "Padel player holding a racket and a ball, ready to serve",
-    "facts": [
+    "left": [
       {
-        "label": "Courts",
-        "value": "4 Panoramic Glass Courts"
+        "value": "4",
+        "label": "Panoramic glass courts"
       },
       {
-        "label": "Climate",
-        "value": "Indoor AC (21°C)"
-      },
-      {
-        "label": "Booking",
-        "value": "Powered by Playtomic"
-      },
-      {
-        "label": "Access",
-        "value": "Open to All • No Membership"
+        "value": "21°C",
+        "label": "Indoor AC"
       }
-    ]
+    ],
+    "right": [
+      {
+        "title": "Open to All",
+        "text": "No membership"
+      },
+      {
+        "title": "Powered by Playtomic",
+        "text": "Book in 2 minutes"
+      }
+    ],
+    "image": {
+      "bg": "hero-bg",
+      "player": "hero-player",
+      "alt": "Padel player holding his racket, watching the rally"
+    }
   },
   "final": {
     "eyebrow": "Ready to play?",

@@ -39,6 +39,17 @@ function initCourt(section, { reduced, active }) {
   addEventListener('scroll', () => { if (!active()) leave(); }, { passive: true });
 }
 
+// Foreground and background drift apart a little with the pointer, for a sense of depth.
+function initDepth(section) {
+  if (!matchMedia('(hover: hover)').matches) return;
+  const near = gsap.quickTo('.hero-player', 'x', { duration: 0.9, ease: 'expo.out' });
+  const far = gsap.quickTo('.hero-bg', 'x', { duration: 0.9, ease: 'expo.out' });
+  section.addEventListener('pointermove', (e) => {
+    const offset = e.clientX / innerWidth - 0.5;
+    near(offset * -18); far(offset * 8);
+  }, { passive: true });
+}
+
 function initSmoothScroll() {
   const lenis = new Lenis({ lerp: 0.1 });
   lenis.on('scroll', ScrollTrigger.update);
@@ -61,13 +72,12 @@ function initSmoothScroll() {
 }
 
 function initHeroIntro() {
-  const lines = document.querySelectorAll('#top .d');
-  gsap.set(lines, { strokeDasharray: 1, strokeDashoffset: 1 });
   gsap.timeline({ defaults: { ease: 'expo.out' } })
-    .to(lines, { strokeDashoffset: 0, duration: 1.6, ease: 'power2.inOut', stagger: 0.08 }, 0)
-    .from('.player', { opacity: 0, y: 40, duration: 1.4 }, 0.35)
+    .from('.columns span', { scaleY: 0, transformOrigin: '50% 0', duration: 1.4, ease: 'power2.inOut', stagger: 0.08 }, 0)
+    .from('.hero-bg', { scale: 1.14, duration: 2 }, 0)
+    .from('.hero-player', { opacity: 0, y: 40, duration: 1.4 }, 0.35)
     .from('.hero .l > span', { yPercent: 110, duration: 1.1, stagger: 0.09 }, 0.45)
-    .from('.eyebrow, .lead, .actions, .facts, [data-header] > *', { opacity: 0, y: 14, duration: 0.8, stagger: 0.05 }, 0.85);
+    .from('.eyebrow, .hero .stats > div, .hero .actions > *, [data-header] > *', { opacity: 0, y: 14, duration: 0.8, stagger: 0.05 }, 0.85);
 }
 
 // The intro owns the image and the text children; the scrub owns the wrappers,
@@ -79,12 +89,11 @@ function initHeroScroll() {
 
   gsap.matchMedia().add('(min-width: 761px)', () => {
     const tl = gsap.timeline({ scrollTrigger: { trigger: hero, start: 'top top', end: '+=130%', pin: true, scrub: 0.6 } });
-    tl.to('.hero .court', { rotateX: 60, scale: 1.3, yPercent: 8, ease: 'none' }, 0)
+    tl.to('.stage', { rotateX: 60, scale: 1.3, yPercent: 8, ease: 'none' }, 0)
       .to('.hero .l:nth-child(1) > span', { xPercent: -30, ease: 'none' }, 0)
-      .to('.hero .l:nth-child(2) > span', { xPercent: 14, ease: 'none' }, 0)
-      .to('.player', { scale: 1.14, yPercent: -7, ease: 'none' }, 0);
-    fade('.eyebrow, .lead, .actions, .facts, .hero .tag', 0.35, 0, tl);
-    tl.to('.copy, .player-wrap', { opacity: 0, ease: 'none', duration: 0.3 }, 0.7);
+      .to('.hero .l:nth-child(2) > span', { xPercent: 14, ease: 'none' }, 0);
+    fade('.eyebrow, .hero .stats, .hero .actions', 0.35, 0, tl);
+    tl.to('.copy, .stage-wrap', { opacity: 0, ease: 'none', duration: 0.3 }, 0.7);
   });
 }
 
@@ -98,19 +107,12 @@ function initReveals() {
   });
 }
 
-function initServices() {
-  if (!matchMedia('(hover: hover) and (min-width: 761px)').matches) return;
-  document.querySelectorAll('[data-service-row]').forEach((row) => {
-    const img = row.querySelector('[data-service-img]');
-    gsap.set(img, { translate: 'none' });
-    const x = gsap.quickTo(img, 'x', { duration: 0.5, ease: 'expo.out' });
-    const y = gsap.quickTo(img, 'y', { duration: 0.5, ease: 'expo.out' });
-    gsap.set(img, { x: row.clientWidth * 0.62, y: row.clientHeight / 2 });
-    row.addEventListener('pointermove', (e) => {
-      const r = row.getBoundingClientRect();
-      x(e.clientX - r.left + 40); y(e.clientY - r.top);
-    }, { passive: true });
-  });
+function initSlider() {
+  const ghost = document.querySelector('[data-ghost]');
+  const track = document.querySelector('[data-slider]');
+  if (!ghost || !track) return;
+  const shift = gsap.quickTo(ghost, 'x', { duration: 0.6, ease: 'expo.out' });
+  track.addEventListener('scroll', () => shift(track.scrollLeft * -0.08), { passive: true });
 }
 
 function initZoom() {
@@ -141,7 +143,8 @@ export function initMotion() {
   initHeroIntro();
   initHeroScroll();
   initReveals();
-  initServices();
+  initDepth(document.querySelector('[data-paint-top]'));
+  initSlider();
   initZoom();
   initParallax();
 
