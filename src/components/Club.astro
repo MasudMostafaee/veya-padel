@@ -1,0 +1,33 @@
+---
+import club from '../content/club.json';
+const base = import.meta.env.BASE_URL;
+---
+<section class="band" id="club" tabindex="-1">
+  <p class="label accent" data-reveal>{club.label}</p>
+  <h2 data-reveal>{club.title}</h2>
+  <p class="sub" data-reveal>{club.sub}</p>
+  <div class="places">
+    {club.places.map((place) => (
+      <article data-reveal>
+        <div class="frame" data-parallax>
+          <img src={`${base}images/${place.image}`} alt={place.alt} width="900" height="1200" loading="lazy" decoding="async" />
+        </div>
+        <h3>{place.title}</h3>
+        <p>{place.text}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .accent { color: var(--ball); }
+  h2 { margin-top: 16px; }
+  .places { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 24px; margin-top: 56px; }
+  .frame { position: relative; overflow: hidden; height: clamp(320px, 46vh, 520px); margin-bottom: 18px; }
+  .frame img { position: absolute; left: 0; top: -8%; width: 100%; height: 116%; object-fit: cover; }
+  article p { margin-top: 8px; color: var(--sub); font-size: 16px; line-height: 1.45; }
+  @media (max-width: 860px) {
+    .places { grid-template-columns: 1fr; gap: 32px; }
+    .frame { height: auto; aspect-ratio: 4 / 3; }
+  }
+</style>
