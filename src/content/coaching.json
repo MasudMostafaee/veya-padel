@@ -17,7 +17,8 @@
       "cta": "View Group Coaching ↓",
       "href": "#group-coaching",
       "image": "track-group.webp",
-      "alt": "Group of players on an indoor padel court"
+      "alt": "Group of players on an indoor padel court",
+      "focus": "50% 62%"
     },
     {
       "label": "Individual & duo",
@@ -31,7 +32,8 @@
       "cta": "Meet Coaches Below ↓",
       "href": "#coaches",
       "image": "track-private.webp",
-      "alt": "Close view of a padel racket and ball during a session"
+      "alt": "Close view of a padel racket and ball during a session",
+      "focus": "50% 45%"
     }
   ],
   "levelsTitle": "Group Coaching by Level",

@@ -1,4 +1,5 @@
 ---
+import PlayCard from './PlayCard.astro';
 import coaching from '../content/coaching.json';
 const base = import.meta.env.BASE_URL;
 ---
@@ -8,22 +9,13 @@ const base = import.meta.env.BASE_URL;
   <p class="sub" data-reveal>{coaching.sub}</p>
   <p class="alert" data-reveal><b>{coaching.alertTitle}</b> {coaching.alertText}</p>
 
-  <ul class="rows">
-    {coaching.tracks.map((track) => (
-      <li class="row" data-service-row data-reveal>
-        <div>
-          <p class="label">{track.label}</p>
-          <h3>{track.title}</h3>
-        </div>
-        <div>
-          <p class="text">{track.text}</p>
-          <ul class="meta">{track.meta.map((item) => <li>{item}</li>)}</ul>
-        </div>
-        <a class="btn" href={track.href}>{track.cta}</a>
-        <img src={`${base}images/${track.image}`} alt={track.alt} width="900" height="1350" loading="lazy" decoding="async" data-service-img />
-      </li>
+  <div class="cards">
+    {coaching.tracks.map((track, i) => (
+      <PlayCard card={track}>
+        <a class:list={['btn', { primary: i === 0 }]} href={track.href}>{track.cta}</a>
+      </PlayCard>
     ))}
-  </ul>
+  </div>
 
   <div class="block" id="group-coaching" tabindex="-1">
     <h3 class="block-title" data-reveal>{coaching.levelsTitle}</h3>
@@ -70,13 +62,8 @@ const base = import.meta.env.BASE_URL;
   .alert { max-width: 72ch; margin-top: 32px; padding: 16px 0; border-block: 1px solid var(--line); font-size: 16px; color: var(--soft); }
   .alert b { color: var(--ball); font-weight: 600; }
   .text { color: var(--sub); font-size: 16px; line-height: 1.45; }
-  .meta { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 10px; font: 400 12px var(--mono); color: var(--sub); }
 
-  .rows { margin-top: 56px; border-top: 1px solid var(--line); }
-  .row { position: relative; display: grid; grid-template-columns: 1.2fr 1fr auto; align-items: center; gap: 32px; padding: 26px 0; border-bottom: 1px solid var(--line); }
-  .row h3 { margin-top: 8px; font-size: clamp(40px, 5.2vw, 84px); line-height: 1; transition: color 0.25s; }
-  .row:hover h3 { color: var(--ball); }
-  .row > img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; grid-column: 1 / -1; }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
 
   .block { margin-top: clamp(72px, 12vh, 120px); }
   .block-title { font-size: clamp(36px, 4.4vw, 64px); line-height: 1; }
@@ -100,24 +87,13 @@ const base = import.meta.env.BASE_URL;
   .creds { margin: 10px 0 18px; font: 400 12px var(--mono); color: var(--sub); }
   .coaches .btn { align-self: stretch; }
 
-  @media (hover: hover) and (min-width: 761px) {
-    .row > img { position: absolute; left: 0; top: 0; z-index: 4; width: 240px; height: 300px; margin: -150px 0 0 0; opacity: 0; pointer-events: none; transition: opacity 0.25s; translate: 58vw 50%; }
-    .row:hover > img, .row:focus-within > img { opacity: 1; }
-  }
-  @media (hover: none) and (min-width: 761px) {
-    .row { grid-template-columns: 1fr 1fr; }
-  }
   @media (max-width: 960px) {
     .levels { grid-template-columns: 1fr; border-top: 0; }
     .levels article:nth-child(n) { padding: 20px 0 24px; border-right: 0; border-top: 1px solid var(--line); }
     .coaches { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 760px) {
-    .rows { margin-top: 40px; }
-    .row { grid-template-columns: 1fr; gap: 14px; padding: 24px 0 28px; }
-    .row h3 { font-size: 44px; }
-    .row > img { order: 3; grid-column: auto; }
-    .row > .btn { order: 4; }
+    .cards { grid-template-columns: 1fr; gap: 40px; }
   }
   @media (max-width: 560px) {
     .coaches { grid-template-columns: 1fr; gap: 40px; }
