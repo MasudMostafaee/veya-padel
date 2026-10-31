@@ -1,7 +1,7 @@
 // Transparent over the hero. Past it, hides on scroll down and returns solid on scroll up.
 export function initHeader() {
   const header = document.querySelector('[data-header]');
-  const firstSection = document.querySelector('#club');
+  const firstSection = document.querySelector('#ways');
   if (!header || !firstSection) return;
 
   const STEP = 6;

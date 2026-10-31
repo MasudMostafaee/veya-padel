@@ -1,0 +1,62 @@
+<dialog class="request" data-request-dialog aria-labelledby="request-title">
+  <form data-request-form novalidate>
+    <h2 id="request-title">Coaching &amp; Level Assessment</h2>
+    <label>Program or Coach
+      <input name="program" readonly />
+    </label>
+    <label>Full Name
+      <input name="name" autocomplete="name" required />
+      <small hidden>Please enter your name.</small>
+    </label>
+    <label>WhatsApp / Phone
+      <input name="phone" type="tel" autocomplete="tel" required />
+      <small hidden>Please enter a phone number.</small>
+    </label>
+    <label>Your Experience Level
+      <select name="level" required>
+        <option value="">Select your self-assessment level...</option>
+        <option>Level 1.0 - Complete Beginner (Never played)</option>
+        <option>Level 1.5 - Played 1-5 times (Or tennis/squash background)</option>
+        <option>Level 2.0-3.0 - Regular player (Can rally &amp; use walls)</option>
+        <option>Level 3.5+ - Advanced / Tournament player</option>
+      </select>
+      <small hidden>Please choose your level.</small>
+    </label>
+    <label>Preferred Training Times
+      <input name="times" />
+    </label>
+    <div class="actions">
+      <button class="btn" type="button" data-request-cancel>Cancel</button>
+      <button class="btn primary">Submit Assessment</button>
+    </div>
+  </form>
+  <div class="done" data-request-done hidden>
+    <p class="label">Concept project</p>
+    <h2>Looks good, <span data-request-name></span>.</h2>
+    <p>On a real club site, the head coach would review this within 24 hours. Veya is a concept, so nothing was sent or saved.</p>
+    <button class="btn primary" type="button" data-request-cancel>Close</button>
+  </div>
+</dialog>
+
+<style>
+  .request {
+    width: min(520px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); padding: 28px; border: 1px solid var(--line-dark);
+    background: var(--ink-2); color: var(--paper);
+    --line: var(--line-dark); --focus: var(--ball);
+  }
+  .request::backdrop { background: rgba(11, 13, 11, 0.7); }
+  h2 { font-size: 36px; margin-bottom: 20px; }
+  label { display: block; margin-top: 14px; font: 500 12px var(--mono); color: var(--mute); }
+  input, select {
+    display: block; width: 100%; min-height: 46px; margin-top: 6px; padding: 0 12px;
+    border: 1px solid var(--line); border-radius: 0; background: var(--ink); color: var(--paper); font: 400 16px var(--body);
+  }
+  input[readonly] { color: var(--mute); }
+  input[aria-invalid='true'], select[aria-invalid='true'] { border-color: var(--ball); }
+  small { display: block; margin-top: 6px; color: var(--ball); font: 400 13px var(--body); }
+  small[hidden] { display: none; }
+  .actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px; }
+  .done .label { color: var(--ball); margin-bottom: 10px; }
+  .done h2 { overflow-wrap: anywhere; }
+  .done p:not(.label) { margin-bottom: 24px; color: var(--soft); }
+</style>
