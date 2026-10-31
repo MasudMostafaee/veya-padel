@@ -2,7 +2,7 @@
 
 All photos are free stock images. Most are converted to black and white; the club gallery is greyed with CSS.
 
-- `hero-bg.webp`, `hero-player.webp`: Iván Hernández-Cuevas on Pexels, cut out and regraded. https://www.pexels.com/photo/padel-match-action-in-merida-mexico-37978999/
+- `hero-bg.webp`, `hero-player.webp`: Manuel Pappacena on Unsplash, cut out and regraded. https://unsplash.com/photos/padel-racket-on-court-zTwzxr4BbTA
 - `ways-crew.webp`: erjola qerimi on Unsplash. https://unsplash.com/photos/four-women-posing-on-a-blue-padel-court-with-racquets-JP1ZS_pf1ls
 - `ways-solo.webp`: erjola qerimi on Unsplash. https://unsplash.com/photos/man-playing-padel-tennis-indoors-hitting-ball-OjbTWGZGX28
 - `first-time.webp`: Anhelina Vasylyk on Pexels. https://www.pexels.com/photo/young-woman-playing-padel-tennis-indoors-35248245/

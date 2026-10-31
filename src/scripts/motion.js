@@ -3,9 +3,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 import { createHeat } from './heat.js';
 
-const AT_TOP = 40;
-
-function initCourt(section, { reduced, active }) {
+function initCourt(section, { reduced }) {
   const canvas = section.querySelector('[data-heat]');
   const ball = section.querySelector('[data-ball]');
   const heat = createHeat(canvas);
@@ -23,7 +21,6 @@ function initCourt(section, { reduced, active }) {
   const show = (autoAlpha) => gsap.to(ball, { autoAlpha, duration: 0.2, overwrite: 'auto' });
 
   function paint(point) {
-    if (!active()) return;
     const r = section.getBoundingClientRect();
     const x = point.clientX - r.left, y = point.clientY - r.top;
     setX(x); setY(y);
@@ -36,7 +33,6 @@ function initCourt(section, { reduced, active }) {
   section.addEventListener('pointerleave', leave);
   section.addEventListener('touchmove', (e) => paint(e.touches[0]), { passive: true });
   section.addEventListener('touchend', leave);
-  addEventListener('scroll', () => { if (!active()) leave(); }, { passive: true });
 }
 
 // Foreground and background drift apart a little with the pointer, for a sense of depth.
@@ -80,23 +76,6 @@ function initHeroIntro() {
     .from('.eyebrow, .hero .stats > div, .hero .actions > *, [data-header] > *', { opacity: 0, y: 14, duration: 0.8, stagger: 0.05 }, 0.85);
 }
 
-// The intro owns the image and the text children; the scrub owns the wrappers,
-// so the two never fight over the same property on the same element.
-function initHeroScroll() {
-  const hero = document.querySelector('.hero');
-  const fade = (targets, duration, at, tl) =>
-    tl.fromTo(targets, { opacity: 1 }, { opacity: 0, ease: 'none', duration, immediateRender: false }, at);
-
-  gsap.matchMedia().add('(min-width: 761px)', () => {
-    const tl = gsap.timeline({ scrollTrigger: { trigger: hero, start: 'top top', end: '+=130%', pin: true, scrub: 0.6 } });
-    tl.to('.stage', { rotateX: 60, scale: 1.3, yPercent: 8, ease: 'none' }, 0)
-      .to('.hero .l:nth-child(1) > span', { xPercent: -30, ease: 'none' }, 0)
-      .to('.hero .l:nth-child(2) > span', { xPercent: 14, ease: 'none' }, 0);
-    fade('.eyebrow, .hero .stats, .hero .actions', 0.35, 0, tl);
-    tl.to('.copy, .stage-wrap', { opacity: 0, ease: 'none', duration: 0.3 }, 0.7);
-  });
-}
-
 function initReveals() {
   const reveal = { y: 40, opacity: 0, duration: 1, ease: 'expo.out' };
   gsap.utils.toArray('[data-reveal]').forEach((el) => {
@@ -135,13 +114,12 @@ export function initMotion() {
   gsap.registerPlugin(ScrollTrigger);
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  initCourt(document.querySelector('[data-paint-top]'), { reduced, active: () => scrollY <= AT_TOP });
-  initCourt(document.querySelector('[data-paint]'), { reduced, active: () => true });
+  initCourt(document.querySelector('[data-paint-top]'), { reduced });
+  initCourt(document.querySelector('[data-paint]'), { reduced });
   if (reduced) return;
 
   initSmoothScroll();
   initHeroIntro();
-  initHeroScroll();
   initReveals();
   initDepth(document.querySelector('[data-paint-top]'));
   initSlider();
