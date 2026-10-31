@@ -22,3 +22,16 @@ Stack: Astro 7 (static), GSAP, Lenis, JSON content files
 - Cause: animation frames can stall when the preview pane is hidden or scaled, so the intro had not run yet
 - Fix: read the value after a screenshot, with the page visible
 - Next time: do not trust a timing-based number from a hidden pane; confirm against a rendered frame
+### Built from the wrong wireframe
+- Area: project setup
+- Symptom: the finished sections matched an old wireframe, not the one Masoud meant
+- Cause: two wireframes existed; the current one lived in a folder described as old, and the older one was the file named wireframe. The source was never confirmed, although he had said he would send it
+- Fix: rebuilt the sections from the version on GitHub main and pinned its copy in the tests
+- Next time: before building from a source file, name it back to the person and compare it with what is live
+
+### Parent style leaked into a child element
+- Area: Astro scoped styles
+- Symptom: the large price showed as tiny monospace text
+- Cause: a bare `span` rule meant for the radio labels also matched the price span in the same component
+- Fix: narrowed the selector to `label span`
+- Next time: scoping stops leaks between components, not inside one; avoid bare element selectors in a busy component

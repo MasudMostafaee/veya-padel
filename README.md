@@ -15,4 +15,4 @@ npm test
 - Motion: `src/scripts/`
 - Photo credits: `CREDITS.md`
 
-`_to-delete/` holds the old wireframe files and can be removed.
+`_to-delete/index.html` is the reference wireframe, the same file that is live on `main`. Keep it until the site is published.
