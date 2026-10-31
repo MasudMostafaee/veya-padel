@@ -1,0 +1,58 @@
+---
+import first from '../content/first.json';
+const base = import.meta.env.BASE_URL;
+---
+<section class="band on-ball first" id="first-time" tabindex="-1">
+  <div class="frame" data-reveal>
+    <img src={`${base}images/${first.image}`} alt={first.alt} width="900" height="1350" loading="lazy" decoding="async" />
+  </div>
+  <div class="body">
+    <p class="label" data-reveal>{first.label}</p>
+    <h2 data-reveal>{first.title}</h2>
+    <p class="sub" data-reveal>{first.sub}</p>
+    <div data-tabs data-reveal>
+      <div class="tablist" role="tablist" aria-label="First time guide">
+        {first.tabs.map((tab, i) => (
+          <button id={`tab-${i}`} type="button" role="tab" aria-controls={`panel-${i}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>{tab.tab}</button>
+        ))}
+      </div>
+      {first.tabs.map((tab, i) => (
+        <div id={`panel-${i}`} class:list={['panel', { active: i === 0 }]} role="tabpanel" aria-labelledby={`tab-${i}`} tabindex="0">
+          <h3>{tab.title}</h3>
+          <p>{tab.text}</p>
+        </div>
+      ))}
+    </div>
+    <div class="actions" data-reveal>
+      <a class="btn primary" href="#group-coaching">{first.primary}</a>
+      <a class="btn" href="#coaches">{first.secondary}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .first { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .frame { overflow: hidden; aspect-ratio: 4 / 5; }
+  .frame img { width: 100%; height: 100%; object-fit: cover; }
+  h2 { margin-top: 16px; }
+  .first .sub { color: var(--ink); }
+  .tablist { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 32px; border: 1px solid var(--ink); }
+  [role='tab'] {
+    min-height: 48px; padding: 8px 10px; border: 0; border-right: 1px solid var(--ink); background: transparent; cursor: pointer;
+    font: 500 12px/1.3 var(--mono); transition: background 0.2s, color 0.2s;
+  }
+  [role='tab']:last-child { border-right: 0; }
+  [role='tab'][aria-selected='true'] { background: var(--ink); color: var(--paper); }
+  .panel { padding: 24px 0 8px; }
+  :global(html.js) .panel:not(.active) { display: none; }
+  .panel p { max-width: 50ch; margin-top: 8px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+  .actions .btn:not(.primary):hover { background: var(--ink); color: var(--paper); }
+  @media (max-width: 860px) {
+    .first { grid-template-columns: 1fr; gap: 32px; }
+    .frame { aspect-ratio: 4 / 3; }
+    .tablist { grid-template-columns: 1fr; }
+    [role='tab'] { border-right: 0; border-bottom: 1px solid var(--ink); }
+    [role='tab']:last-child { border-bottom: 0; }
+  }
+</style>
