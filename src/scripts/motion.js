@@ -54,7 +54,7 @@ function initSmoothScroll() {
     if (!target) return;
     e.preventDefault();
     lenis.start();
-    lenis.scrollTo(link.getAttribute('href') === '#top' ? 0 : target, { duration: 1.2 });
+    lenis.scrollTo(link.getAttribute('href') === '#top' ? 0 : target, { duration: 1.2, offset: target.matches('section') ? 0 : -96 });
     target.focus({ preventScroll: true });
     history.pushState(null, '', link.getAttribute('href'));
   });
@@ -67,7 +67,7 @@ function initHeroIntro() {
     .to(lines, { strokeDashoffset: 0, duration: 1.6, ease: 'power2.inOut', stagger: 0.08 }, 0)
     .from('.player', { opacity: 0, y: 40, duration: 1.4 }, 0.35)
     .from('.hero .l > span', { yPercent: 110, duration: 1.1, stagger: 0.09 }, 0.45)
-    .from('.eyebrow, .lead, .actions, .hero .handoff, [data-header] > *', { opacity: 0, y: 14, duration: 0.8, stagger: 0.05 }, 0.85);
+    .from('.eyebrow, .lead, .actions, .facts, [data-header] > *', { opacity: 0, y: 14, duration: 0.8, stagger: 0.05 }, 0.85);
 }
 
 // The intro owns the image and the text children; the scrub owns the wrappers,
@@ -81,10 +81,9 @@ function initHeroScroll() {
     const tl = gsap.timeline({ scrollTrigger: { trigger: hero, start: 'top top', end: '+=130%', pin: true, scrub: 0.6 } });
     tl.to('.hero .court', { rotateX: 60, scale: 1.3, yPercent: 8, ease: 'none' }, 0)
       .to('.hero .l:nth-child(1) > span', { xPercent: -30, ease: 'none' }, 0)
-      .to('.hero .l:nth-child(2) > span', { xPercent: 22, ease: 'none' }, 0)
-      .to('.hero .l:nth-child(3) > span', { xPercent: -14, ease: 'none' }, 0)
+      .to('.hero .l:nth-child(2) > span', { xPercent: 14, ease: 'none' }, 0)
       .to('.player', { scale: 1.14, yPercent: -7, ease: 'none' }, 0);
-    fade('.eyebrow, .lead, .actions, .hero .handoff, .hero .tag', 0.35, 0, tl);
+    fade('.eyebrow, .lead, .actions, .facts, .hero .tag', 0.35, 0, tl);
     tl.to('.copy, .player-wrap', { opacity: 0, ease: 'none', duration: 0.3 }, 0.7);
   });
 }
@@ -114,6 +113,14 @@ function initServices() {
   });
 }
 
+function initZoom() {
+  gsap.utils.toArray('[data-zoom]').forEach((frame) => {
+    gsap.fromTo(frame.querySelector('img'), { scale: 1.14 }, {
+      scale: 1, ease: 'none', scrollTrigger: { trigger: frame, start: 'top bottom', end: 'center center', scrub: 0.6 },
+    });
+  });
+}
+
 function initParallax() {
   gsap.utils.toArray('[data-parallax]').forEach((frame) => {
     gsap.fromTo(frame.querySelector('img'), { yPercent: -6 }, {
@@ -135,6 +142,7 @@ export function initMotion() {
   initHeroScroll();
   initReveals();
   initServices();
+  initZoom();
   initParallax();
 
   let timer;

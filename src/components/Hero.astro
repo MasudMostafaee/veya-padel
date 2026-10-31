@@ -9,8 +9,7 @@ const base = import.meta.env.BASE_URL;
   <div class="player-wrap">
     <img class="player" src={`${base}images/player.webp`} alt={hero.alt} width="791" height="1720" fetchpriority="high" />
   </div>
-  <span class="tag net-tag" aria-hidden="true">{hero.netTag}</span>
-  <span class="tag court-tag" aria-hidden="true">{hero.courtTag}</span>
+  <span class="tag" aria-hidden="true">{hero.netTag}</span>
   <div class="copy">
     <p class="eyebrow">{hero.eyebrow}</p>
     <h1>
@@ -18,43 +17,59 @@ const base = import.meta.env.BASE_URL;
     </h1>
     <p class="lead">{hero.lead}</p>
     <div class="actions">
-      <a class="btn primary" href="#final">{site.bookLabel}</a>
-      <a class="btn" href="#new">{hero.secondary}</a>
+      <button class="btn primary" type="button" data-concept={site.bookNote}>{site.bookLabel}</button>
+      <a class="btn" href="#ways">{hero.secondary}</a>
     </div>
-    <p class="handoff">{hero.handoff}</p>
   </div>
+  <dl class="facts">
+    {hero.facts.map((fact) => (
+      <div><dt class="label">{fact.label}</dt><dd>{fact.value}</dd></div>
+    ))}
+  </dl>
 </section>
 
 <style>
   .hero {
     --line: var(--line-dark); --focus: var(--ball);
-    position: relative; height: 100svh; min-height: 620px; overflow: hidden;
+    position: relative; display: flex; flex-direction: column; justify-content: flex-end;
+    height: 100svh; min-height: 640px; overflow: hidden;
     background: var(--ink); perspective: 1500px;
   }
   .player-wrap { position: absolute; inset: 0; pointer-events: none; z-index: 3; }
-  .player { position: absolute; right: 4vw; bottom: 7vh; height: 84vh; width: auto; max-width: none; }
-  .tag { position: absolute; font: 500 11px/1 var(--mono); letter-spacing: 0.08em; color: var(--mute); text-transform: uppercase; }
-  .court-tag { right: var(--gutter); bottom: 26px; }
-  .net-tag { left: 50%; top: 84px; transform: translateX(-50%); }
-  .copy { position: absolute; left: var(--gutter); bottom: clamp(28px, 6vh, 60px); z-index: 5; pointer-events: none; }
-  .copy a { pointer-events: auto; }
+  .player { position: absolute; right: 6vw; bottom: 56px; height: 80vh; width: auto; max-width: none; }
+  .tag { position: absolute; left: 50%; top: 84px; transform: translateX(-50%); font: 500 11px/1 var(--mono); letter-spacing: 0.08em; color: var(--mute); text-transform: uppercase; }
+  .copy { position: relative; z-index: 5; padding: 0 var(--gutter) clamp(24px, 4vh, 40px); pointer-events: none; }
+  .copy a, .copy button { pointer-events: auto; }
   .eyebrow { margin-bottom: 18px; font: 500 12px var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ball); }
-  h1 { margin: 0; font: 400 clamp(58px, 9.4vw, 158px)/0.96 var(--display); text-transform: uppercase; letter-spacing: 0.005em; }
+  h1 { margin: 0; font: 400 clamp(72px, 11.2vw, 190px)/0.96 var(--display); text-transform: uppercase; letter-spacing: 0.005em; }
   .l { display: block; clip-path: inset(0 -100vw); padding-top: 0.04em; }
   .l > span { display: block; white-space: nowrap; }
   .lead { max-width: 44ch; margin-top: 20px; color: var(--soft); }
   .actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+  .facts {
+    position: relative; z-index: 5; display: grid; grid-template-columns: repeat(4, 1fr); margin: 0;
+    border-top: 1px solid var(--line); background: rgba(11, 13, 11, 0.6); pointer-events: none;
+  }
+  .facts div { padding: 14px var(--gutter); border-right: 1px solid var(--line); }
+  .facts div:last-child { border-right: 0; }
+  .facts dt { margin-bottom: 4px; color: var(--mute); font-size: 11px; }
+  .facts dd { margin: 0; font-size: 15px; font-weight: 500; }
 
   @media (min-width: 761px) and (max-width: 1100px) and (orientation: portrait) {
-    .player { top: 96px; bottom: auto; height: 58vh; }
+    .player { top: 96px; bottom: auto; height: 52vh; }
   }
   @media (max-width: 760px) {
-    .hero { min-height: 600px; }
-    .net-tag, .court-tag { display: none; }
-    .player { right: 3vw; top: 84px; bottom: auto; height: 44vh; }
-    .copy { left: 16px; right: 16px; bottom: 24px; }
-    h1 { font-size: 11.6vw; }
+    .hero { height: auto; min-height: max(100svh, 800px); }
+    .tag { display: none; }
+    .player { right: 3vw; top: 72px; bottom: auto; height: 250px; }
+    .copy { padding: 0 16px 20px; }
+    h1 { font-size: 17.4vw; }
     .lead { font-size: 16px; }
     .actions .btn { flex: 1 1 0; padding: 0 12px; }
+    .facts { grid-template-columns: 1fr 1fr; }
+    .facts div { padding: 10px 16px; }
+    .facts div:nth-child(2) { border-right: 0; }
+    .facts div:nth-child(-n + 2) { border-bottom: 1px solid var(--line); }
+    .facts dd { font-size: 13px; }
   }
 </style>
