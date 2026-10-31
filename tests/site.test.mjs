@@ -82,3 +82,14 @@ test('hero keeps only the slogan, with no paragraph under it', () => {
   assert.ok(html.includes('hero-player.webp'));
   assert.ok(!html.includes('images/player.webp'));
 });
+
+test('hero scrolls with the page, with no pin or tilt', () => {
+  const motion = readFileSync(new URL('../src/scripts/motion.js', import.meta.url), 'utf8');
+  assert.ok(!motion.includes('pin: true'));
+  assert.ok(!motion.includes('rotateX'));
+});
+
+test('assets use the GitHub Pages base path', () => {
+  assert.ok(html.includes('/veya-padel/images/hero-player.webp'));
+  assert.ok(!/src="\/images\//.test(html));
+});

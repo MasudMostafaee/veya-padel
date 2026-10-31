@@ -41,3 +41,9 @@ Stack: Astro 7 (static), GSAP, Lenis, JSON content files
 - Cause: `Base.astro` still preloaded the old `player.webp`
 - Fix: pointed the preload at the new layers and added a test that the old path is gone
 - Next time: when replacing a key image, search for its name across the layout as well as the component
+### Reference meant more than one hero frame
+- Area: hero motion
+- Symptom: the page tilted on scroll while Masoud expected the reference behaviour
+- Cause: "keep the scroll" was taken literally after the reference site had been named as the target
+- Fix: measured the reference with ScrollTrigger and DOM samples: no pin, no transform; the hero simply scrolls away
+- Next time: when a reference site is named, measure its motion before building and show the difference
