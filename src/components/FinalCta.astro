@@ -1,0 +1,29 @@
+---
+import Court from './Court.astro';
+import site from '../content/site.json';
+const { final } = site;
+---
+<section class="final" id="final" tabindex="-1" data-paint>
+  <Court />
+  <div class="body">
+    <h2>{final.title}</h2>
+    <p class="sub">{final.text}</p>
+    <button class="btn primary" type="button" data-concept={site.bookNote}>{site.bookLabel}</button>
+    <p class="handoff">{final.handoff}</p>
+  </div>
+</section>
+
+<style>
+  .final {
+    --line: var(--line-dark); --sub: var(--soft); --focus: var(--ball);
+    position: relative; display: grid; place-items: center; min-height: 100svh; overflow: hidden;
+    padding: var(--section-y) var(--gutter); background: var(--ink); text-align: center;
+  }
+  .body { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; pointer-events: none; }
+  .body .btn { pointer-events: auto; margin-top: 28px; }
+  h2 { font-size: clamp(64px, 15vw, 260px); line-height: 0.95; }
+  .sub { margin-top: 20px; }
+  @media (max-width: 760px) {
+    h2 { font-size: 21vw; }
+  }
+</style>
