@@ -1,0 +1,40 @@
+---
+import pricing from '../content/pricing.json';
+---
+<section class="band on-paper pricing" id="pricing" tabindex="-1">
+  <h2 data-reveal>{pricing.title}</h2>
+  <p class="sub" data-reveal>{pricing.sub}</p>
+  <div class="prices" data-reveal-group>
+    {pricing.plans.map((plan) => (
+      <article class:list={['plan', { 'on-ink': plan.featured }]}>
+        <h3>{plan.name}</h3>
+        <p class="amount">{plan.price}</p>
+        <p class="unit">{plan.unit}</p>
+        <dl>
+          {plan.rows.map(([label, value]) => (
+            <div><dt>{label}</dt><dd>{value}</dd></div>
+          ))}
+        </dl>
+        <a class:list={['btn', { primary: plan.featured }]} href="#final">{plan.cta}</a>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .prices { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 56px; border: 1px solid var(--line); }
+  .plan { display: flex; flex-direction: column; padding: 28px; border-right: 1px solid var(--line); }
+  .plan:last-child { border-right: 0; }
+  .amount { margin-top: 28px; font: 400 clamp(64px, 7vw, 104px)/1 var(--display); }
+  .unit { margin-top: 6px; color: var(--sub); font-size: 15px; }
+  dl { margin: 28px 0 32px; border-top: 1px solid var(--line); }
+  dl div { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+  dt { color: var(--sub); }
+  dd { font-weight: 600; }
+  .plan .btn { margin-top: auto; }
+  @media (max-width: 860px) {
+    .prices { grid-template-columns: 1fr; }
+    .plan { border-right: 0; border-bottom: 1px solid var(--line); }
+    .plan:last-child { border-bottom: 0; }
+  }
+</style>
