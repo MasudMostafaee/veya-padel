@@ -1,0 +1,48 @@
+---
+import reviews from '../content/reviews.json';
+const set = [...reviews.items, ...reviews.items];
+---
+<section class="band reviews" id="reviews" tabindex="-1">
+  <h2 data-reveal>{reviews.title}</h2>
+  <div class="quotes" data-marquee>
+    <ul class="track">
+      {set.map((item, i) => (
+        <li aria-hidden={i >= reviews.items.length ? 'true' : undefined}>
+          <figure>
+            <p class="stars" role="img" aria-label={`${item.stars} out of 5 stars`}>{'★'.repeat(item.stars)}<span>{'★'.repeat(5 - item.stars)}</span></p>
+            <blockquote>{item.quote}</blockquote>
+            <figcaption><b>{item.name}</b> <span>{item.role}</span></figcaption>
+          </figure>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .reviews { overflow: hidden; }
+  .quotes { margin: 56px calc(var(--gutter) * -1) 0; }
+  .track { display: flex; width: max-content; }
+  li { width: min(520px, 80vw); padding: 0 var(--gutter); border-right: 1px solid var(--line); }
+  .stars { color: var(--ball); letter-spacing: 0.12em; }
+  .stars span { color: var(--line); }
+  blockquote { margin-top: 18px; font: 400 clamp(28px, 2.8vw, 38px)/1.14 var(--display); text-transform: uppercase; }
+  figcaption { margin-top: 20px; font-size: 15px; }
+  figcaption span { color: var(--mute); }
+
+  @media (prefers-reduced-motion: no-preference) and (min-width: 761px) {
+    .track { animation: slide 56s linear infinite; }
+    .quotes:hover .track, .quotes:focus-within .track { animation-play-state: paused; }
+    @keyframes slide { to { transform: translateX(-50%); } }
+  }
+  @media (prefers-reduced-motion: reduce), (max-width: 760px) {
+    .quotes { margin: 40px 0 0; }
+    .track { display: grid; width: auto; }
+    li { width: auto; padding: 24px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+    li[aria-hidden='true'] { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) and (min-width: 761px) {
+    .track { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    li { border-bottom: 0; }
+  }
+</style>
