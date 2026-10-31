@@ -1,0 +1,20 @@
+:root {
+  --ink: #0b0d0b;
+  --ink-2: #141714;
+  --paper: #f3f5ee;
+  --ball: #d2f11d;
+  --mute: #9aa096;
+  --mute-paper: #464b43;
+  --soft: #c9cdc4;
+  --line-dark: rgba(243, 245, 238, 0.2);
+  --line-light: rgba(11, 13, 11, 0.2);
+
+  --display: 'Anton', Impact, sans-serif;
+  --body: 'Hanken Grotesk Variable', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --gutter: clamp(16px, 3vw, 44px);
+  --section-y: clamp(84px, 12vh, 140px);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --header-h: 78px;
+}
