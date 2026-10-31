@@ -16,7 +16,7 @@
       "primary": true,
       "image": "ways-crew.webp",
       "alt": "Four friends with rackets on a padel court",
-      "focus": "50% 62%"
+      "focus": "50% 66%"
     },
     {
       "label": "Community matchmaking",
@@ -31,7 +31,7 @@
       "primary": false,
       "image": "ways-solo.webp",
       "alt": "Solo player jumping to serve on an indoor court",
-      "focus": "50% 38%"
+      "focus": "50% 35%"
     }
   ]
 }

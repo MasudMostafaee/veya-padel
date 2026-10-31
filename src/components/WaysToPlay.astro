@@ -3,14 +3,10 @@ import PlayCard from './PlayCard.astro';
 import ways from '../content/ways.json';
 import site from '../content/site.json';
 ---
-<section class="band on-paper ways" id="ways" tabindex="-1">
-  <header class="head">
-    <div>
-      <p class="label" data-reveal>{ways.label}</p>
-      <h2 data-reveal>{ways.title}</h2>
-    </div>
-    <p class="sub" data-reveal>{ways.sub}</p>
-  </header>
+<section class="band on-paper" id="ways" tabindex="-1">
+  <p class="label" data-reveal>{ways.label}</p>
+  <h2 data-reveal>{ways.title}</h2>
+  <p class="sub" data-reveal>{ways.sub}</p>
   <div class="cards">
     {ways.cards.map((card) => (
       <PlayCard card={card}>
@@ -21,14 +17,9 @@ import site from '../content/site.json';
 </section>
 
 <style>
-  .ways { padding-block: clamp(56px, 8vh, 96px); }
-  .head { display: flex; align-items: flex-end; justify-content: space-between; gap: 48px; }
-  h2 { margin-top: 12px; font-size: clamp(44px, 5.4vw, 88px); }
-  .sub { max-width: 34ch; margin: 0 0 6px; font-size: 16px; line-height: 1.4; text-align: right; }
-  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; }
+  h2 { margin-top: 16px; }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
   @media (max-width: 760px) {
-    .head { flex-direction: column; align-items: flex-start; gap: 12px; }
-    .sub { text-align: left; }
-    .cards { grid-template-columns: 1fr; gap: 40px; margin-top: 28px; }
+    .cards { grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
   }
 </style>
