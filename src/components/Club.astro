@@ -1,33 +1,75 @@
 ---
+import Logo from './Logo.astro';
 import club from '../content/club.json';
 const base = import.meta.env.BASE_URL;
 ---
-<section class="band" id="club" tabindex="-1">
-  <p class="label accent" data-reveal>{club.label}</p>
-  <h2 data-reveal>{club.title}</h2>
-  <p class="sub" data-reveal>{club.sub}</p>
-  <div class="places">
-    {club.places.map((place) => (
-      <article data-reveal>
-        <div class="frame" data-parallax>
-          <img src={`${base}images/${place.image}`} alt={place.alt} width="900" height="1200" loading="lazy" decoding="async" />
-        </div>
-        <h3>{place.title}</h3>
-        <p>{place.text}</p>
-      </article>
-    ))}
+<section class="band gallery-band" id="club" tabindex="-1">
+  <div class="ghost-wrap" aria-hidden="true">
+    <div class="ghost" data-ghost><Logo class="ghost-logo" /></div>
   </div>
+  <header class="head">
+    <div>
+      <p class="label accent" data-reveal>{club.label}</p>
+      <h2 data-reveal>{club.title}</h2>
+      <p class="sub" data-reveal>{club.sub}</p>
+    </div>
+    <div class="nav" data-reveal>
+      <button type="button" data-slider-prev aria-label="Previous photo">«</button>
+      <button type="button" data-slider-next aria-label="Next photo">»</button>
+    </div>
+  </header>
+  <ul class="gallery" data-slider tabindex="0" aria-label="Photos of the club">
+    {club.places.map((place) => (
+      <li>
+        <figure>
+          <div class="frame">
+            <img src={`${base}images/${place.image}`} alt={place.alt} width="1120" height="840" loading="lazy" decoding="async" draggable="false" />
+          </div>
+          <figcaption>{place.caption}</figcaption>
+        </figure>
+      </li>
+    ))}
+  </ul>
 </section>
 
 <style>
+  .gallery-band { position: relative; overflow: hidden; }
   .accent { color: var(--ball); }
-  h2 { margin-top: 16px; }
-  .places { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 24px; margin-top: 56px; }
-  .frame { position: relative; overflow: hidden; height: clamp(320px, 46vh, 520px); margin-bottom: 18px; }
-  .frame img { position: absolute; left: 0; top: -8%; width: 100%; height: 116%; object-fit: cover; }
-  article p { margin-top: 8px; color: var(--sub); font-size: 16px; line-height: 1.45; }
-  @media (max-width: 860px) {
-    .places { grid-template-columns: 1fr; gap: 32px; }
-    .frame { height: auto; aspect-ratio: 4 / 3; }
+  .ghost-wrap { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; opacity: 0.05; transition: opacity 0.5s; }
+  .gallery-band:has(.gallery li:hover) .ghost-wrap { opacity: 0.1; }
+  .ghost { width: 118vw; flex: none; }
+  .ghost-wrap :global(.ghost-logo) { width: 100%; height: auto; --mark-color: var(--paper); }
+  .ghost-wrap :global(.ghost-logo .mark) { fill: var(--paper); }
+
+  .head { position: relative; display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }
+  h2 { margin-top: 16px; font-size: clamp(44px, 5.4vw, 88px); }
+  .sub { margin-top: 12px; }
+  .nav { display: flex; flex: none; gap: 10px; }
+  .nav button {
+    width: 72px; height: 52px; border: 1px solid var(--line); background: transparent; color: var(--paper); cursor: pointer;
+    font-size: 18px; transition: background 0.25s, color 0.25s, opacity 0.25s;
+  }
+  .nav button:hover:not(:disabled) { background: var(--ball); border-color: var(--ball); color: var(--ink); }
+  .nav button:disabled { opacity: 0.3; cursor: default; }
+
+  .gallery {
+    position: relative; display: flex; gap: 16px; margin: 44px calc(var(--gutter) * -1) 0; padding: 0 var(--gutter) 6px;
+    overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-left: var(--gutter); scrollbar-width: none; cursor: grab;
+  }
+  .gallery::-webkit-scrollbar { display: none; }
+  .gallery:global(.is-dragging) { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+  li { flex: none; width: clamp(280px, 39vw, 640px); scroll-snap-align: start; }
+  .frame { overflow: hidden; aspect-ratio: 4 / 3; }
+  img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transition: filter 0.5s, transform 0.7s var(--ease); pointer-events: none; }
+  li:hover img, li:global(.is-active) img { filter: none; transform: scale(1.03); }
+  figcaption { margin-top: 12px; overflow: hidden; color: var(--mute); font-size: 15px; white-space: nowrap; text-overflow: ellipsis; }
+
+  @media (max-width: 760px) {
+    .head { flex-direction: column; align-items: flex-start; gap: 20px; }
+    li { width: 82vw; }
+    .gallery { margin-top: 28px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    img, .ghost-wrap { transition: none; }
   }
 </style>

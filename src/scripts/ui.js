@@ -84,6 +84,46 @@ function initTabs() {
   });
 }
 
+function initGallery() {
+  const track = document.querySelector('[data-slider]');
+  const prev = document.querySelector('[data-slider-prev]');
+  const next = document.querySelector('[data-slider-next]');
+  const items = [...track.children];
+
+  const step = () => items[0].offsetWidth + 16;
+  function sync() {
+    const max = track.scrollWidth - track.clientWidth;
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft >= max - 2;
+  }
+  prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+  next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+  track.addEventListener('scroll', sync, { passive: true });
+  addEventListener('resize', sync);
+  sync();
+
+  // drag with a mouse; touch and trackpads already scroll natively
+  let start = null;
+  track.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'mouse') return;
+    start = { x: e.clientX, left: track.scrollLeft };
+  });
+  addEventListener('pointermove', (e) => {
+    if (!start) return;
+    if (Math.abs(e.clientX - start.x) > 4) track.classList.add('is-dragging');
+    track.scrollLeft = start.left - (e.clientX - start.x);
+  });
+  addEventListener('pointerup', () => { start = null; track.classList.remove('is-dragging'); });
+
+  // no hover on touch screens, so the photo most in view takes the colour
+  if (matchMedia('(hover: none)').matches) {
+    const seen = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => entry.target.classList.toggle('is-active', entry.isIntersecting));
+    }, { root: track, threshold: 0.7 });
+    items.forEach((item) => seen.observe(item));
+  }
+}
+
 function initPricing() {
   const root = document.querySelector('[data-pricing]');
   const prices = JSON.parse(root.dataset.prices);
@@ -129,6 +169,7 @@ export function initUi() {
   initCoachingRequest();
   initTabs();
   initPricing();
+  initGallery();
 
   // a phone rotated to landscape has the menu's trigger hidden, so close it
   matchMedia('(min-width: 761px)').addEventListener('change', (e) => {
