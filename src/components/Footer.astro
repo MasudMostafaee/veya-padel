@@ -1,54 +1,28 @@
 ---
 import Logo from './Logo.astro';
 import site from '../content/site.json';
-import info from '../content/info.json';
 import footer from '../content/footer.json';
-const contact = info.groups.flatMap((g) => (['Address', 'Contact', 'Opening hours'].includes(g.label) ? g.lines : []));
-const year = new Date().getFullYear();
 ---
 <footer class="band footer">
-  <div class="cols">
-    <div class="about">
-      <p>{footer.tagline}</p>
-      <a class="btn" href="#final">{site.bookLabel}</a>
-    </div>
-    <nav aria-label="Quick links">
-      <p class="label">Quick links</p>
-      {site.nav.map((item) => <a href={item.href}>{item.label}</a>)}
-    </nav>
-    <div>
-      <p class="label">Contact</p>
-      {contact.map((line) => <p>{line}</p>)}
-    </div>
-    <div>
-      <p class="label">Social</p>
-      {footer.social.map((name) => <button type="button" data-concept={`Veya is a concept project, so it has no ${name} page.`}>{name}</button>)}
-    </div>
-  </div>
   <Logo class="big" />
   <div class="legal">
-    <p>© {year} {site.name}</p>
-    {footer.legal.map((name) => <button type="button" data-concept={footer.note}>{name}</button>)}
+    <p>{footer.copyright}</p>
+    {footer.links.map((link) => <a href={link.href}>{link.label}</a>)}
+    <button type="button" data-concept={footer.clubNote}>{footer.club}</button>
     <p class="concept">{footer.concept}</p>
   </div>
+  <p class="visually-hidden">{site.name}</p>
 </footer>
 
 <style>
-  .footer { padding-bottom: 28px; border-top: 1px solid var(--line); font-size: 15px; }
-  .cols { display: grid; grid-template-columns: 2fr 1fr 1.4fr 1fr; gap: 40px; }
-  .about p { max-width: 34ch; font-size: 17px; }
-  .about .btn { margin-top: 22px; }
-  .label { margin-bottom: 14px; color: var(--mute); }
-  .cols a:not(.btn), .cols button { display: flex; align-items: center; min-height: 32px; }
-  button { padding: 0; border: 0; background: none; cursor: pointer; text-align: left; }
-  .cols a:not(.btn):hover, button:hover { color: var(--ball); }
-  .footer :global(.big) { width: 100%; height: auto; margin-top: 72px; }
+  .footer { padding-top: 72px; padding-bottom: 28px; border-top: 1px solid var(--line); }
+  .footer :global(.big) { width: 100%; height: auto; }
   .legal { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; margin-top: 28px; color: var(--mute); font-size: 13px; }
-  .legal button { min-height: 32px; font-size: 13px; }
+  .legal a, .legal button { display: flex; align-items: center; min-height: 44px; }
+  .legal button { padding: 0; border: 0; background: none; cursor: pointer; font-size: 13px; }
+  .legal a:hover, .legal button:hover { color: var(--ball); }
   .concept { margin-left: auto; font-family: var(--mono); font-size: 12px; }
   @media (max-width: 860px) {
-    .cols { grid-template-columns: 1fr 1fr; gap: 32px; }
-    .about { grid-column: 1 / -1; }
     .concept { margin-left: 0; width: 100%; }
   }
 </style>
